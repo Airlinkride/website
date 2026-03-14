@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Rates() {
   const rates = [
@@ -78,9 +79,11 @@ export default function Rates() {
 
               <p className="text-3xl font-bold text-lime-400">{rate.price}</p>
 
-              <button className="mt-6 bg-lime-400 text-black px-6 py-2 rounded hover:bg-lime-300 transition">
-                Book Ride
-              </button>
+              <Link href="/booking">
+                <button className="mt-6 bg-lime-400 text-black px-6 py-2 rounded hover:bg-lime-300 transition">
+                  Book Ride
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>
