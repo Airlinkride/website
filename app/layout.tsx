@@ -18,9 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className="bg-black text-white flex flex-col min-h-screen">
         <Navbar />
-
         <main className="flex-grow">{children}</main>
-
         <Footer />
       </body>
     </html>
