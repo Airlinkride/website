@@ -8,13 +8,13 @@ export default function Contact() {
       {/* HERO */}
       <section
         className="h-[40vh] flex items-center justify-center text-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/airport.jpg')" }}
+        style={{ backgroundImage: "url('/contactus.jpg')" }}
       >
         <div className="bg-black/60 p-8 rounded-lg">
           <h1 className="text-5xl font-bold">Contact AirLinkRide</h1>
           <p className="text-gray-300 mt-2">
-            Travel in comfort with professional chauffeurs, luxury vehicles,
-and punctual service across Toronto and the GTA.
+            Travel in comfort with professional chauffeurs, luxury vehicles, and
+            punctual service across Toronto and the GTA.
           </p>
         </div>
       </section>
@@ -98,7 +98,7 @@ and punctual service across Toronto and the GTA.
 
         <div className="rounded-xl overflow-hidden shadow-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5763.782710492544!2d-79.30446312433719!3d43.75435284588352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d20ff39da0c1%3A0x61c64ed5d0cd0fd5!2s27%20Princemere%20Crescent%2C%20Scarborough%2C%20ON%20M1R%203W8!5e0!3m2!1sen!2sca!4v1773200083302!5m2!1sen!2sca"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.32001732389!2d-79.61606842464477!3d43.683109950497105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12009d7e29d56021%3A0x618a3696f25b1356!2sPearson%20Airport%20Terminal%201%20Parking%2C%20Mississauga%2C%20ON!5e0!3m2!1sen!2sca!4v1773596952926!5m2!1sen!2sca"
             width="100%"
             height="450"
             style={{ border: 0 }}
