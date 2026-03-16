@@ -1,56 +1,86 @@
-import { google } from "googleapis"
-import twilio from "twilio"
+import { NextResponse } from "next/server"
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: Request) {
 
-  const data = await req.json()
+  try {
 
-  const bookingId = "ALR-" + Math.floor(1000 + Math.random() * 9000)
+    const body = await req.json()
 
-  // Google Sheets
-  const auth = new google.auth.GoogleAuth({
-    credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS!),
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"]
-  })
+    const {
+      name,
+      email,
+      phone,
+      pickup,
+      drop,
+      date,
+      time,
+      passengers,
+      luggage,
+      flightNumber
+    } = body
 
-  const sheets = google.sheets({ version: "v4", auth })
+    /* EMAIL TO CUSTOMER */
 
-  await sheets.spreadsheets.values.append({
-    spreadsheetId: process.env.SHEET_ID,
-    range: "Sheet1!A:H",
-    valueInputOption: "USER_ENTERED",
-    requestBody: {
-      values: [[
-        bookingId,
-        data.name,
-        data.phone,
-        data.pickup,
-        data.drop,
-        data.date,
-        data.time,
-        "Pending"
-      ]]
-    }
-  })
+    await resend.emails.send({
+      from: "AirLinkRide <booking@airlinkride.com>",
+      to: email,
+      subject: "Your AirLinkRide Booking Confirmation",
+      html: `
+        <h2>Booking Confirmation</h2>
 
-  // Twilio SMS
-  const client = twilio(
-    process.env.TWILIO_SID,
-    process.env.TWILIO_TOKEN
-  )
+        <p>Hi ${name},</p>
 
-  const trackingLink =
-    `https://airlinkride.com/track/${bookingId}`
+        <p>Your ride request has been received.</p>
 
-  await client.messages.create({
-    body:
-      `AirLinkRide Booking Confirmed\n\nReference: ${bookingId}\nTrack ride:\n${trackingLink}`,
-    from: process.env.TWILIO_PHONE,
-    to: data.phone
-  })
+        <p><strong>Pickup:</strong> ${pickup}</p>
+        <p><strong>Drop:</strong> ${drop}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Time:</strong> ${time}</p>
+        <p><strong>Passengers:</strong> ${passengers}</p>
+        <p><strong>Luggage:</strong> ${luggage}</p>
+        <p><strong>Flight:</strong> ${flightNumber || "N/A"}</p>
 
-  return Response.json({
-    success: true,
-    bookingId
-  })
+        <br/>
+
+        <p>Our team will contact you shortly.</p>
+
+        <p><strong>AirLinkRide</strong></p>
+        <p>+1 437-522-8001</p>
+      `
+    })
+
+
+    /* EMAIL TO YOU */
+
+    await resend.emails.send({
+      from: "AirLinkRide <booking@airlinkride.com>",
+      to: "info@airlinkride.com",
+      subject: "New Ride Booking",
+      html: `
+        <h2>New Booking</h2>
+
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Pickup:</strong> ${pickup}</p>
+        <p><strong>Drop:</strong> ${drop}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Time:</strong> ${time}</p>
+        <p><strong>Passengers:</strong> ${passengers}</p>
+        <p><strong>Luggage:</strong> ${luggage}</p>
+        <p><strong>Flight:</strong> ${flightNumber || "N/A"}</p>
+      `
+    })
+
+    return NextResponse.json({ success: true })
+
+  } catch (error) {
+
+    console.error(error)
+
+    return NextResponse.json({ error: "Email failed" })
+  }
 }

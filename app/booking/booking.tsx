@@ -10,12 +10,14 @@ export default function Booking() {
   const [form, setForm] = useState({
     name: "",
     phone: "",
+    email: "",
     pickup: "",
     drop: "",
     date: "",
     time: "",
     passengers: "",
     luggage: "",
+    flightNumber: "",
   });
 
   const [success, setSuccess] = useState(false);
@@ -39,17 +41,38 @@ export default function Booking() {
     }
   }, [searchParams]);
 
-  function submit(e: any) {
-    e.preventDefault();
+  async function submit(e: any) {
+  e.preventDefault();
 
-    console.log(form);
+  const res = await fetch("/api/book", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(form),
+  });
 
+  if (res.ok) {
     setSuccess(true);
+
+    setForm({
+      name: "",
+      phone: "",
+      email: "",
+      pickup: "",
+      drop: "",
+      date: "",
+      time: "",
+      passengers: "",
+      luggage: "",
+      flightNumber: "",
+    });
 
     setTimeout(() => {
       setSuccess(false);
     }, 4000);
   }
+}
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -106,6 +129,15 @@ export default function Booking() {
               required
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            />
+
+            <input
+              type="email"
+              className="w-full p-3 rounded text-black"
+              placeholder="Email Address"
+              required
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
 
             <input
@@ -176,6 +208,15 @@ export default function Booking() {
                 onChange={(e) => setForm({ ...form, luggage: e.target.value })}
               />
             </div>
+
+            <input
+              className="w-full p-3 rounded text-black"
+              placeholder="Flight Number (Optional)"
+              value={form.flightNumber}
+              onChange={(e) =>
+                setForm({ ...form, flightNumber: e.target.value })
+              }
+            />
 
             <button className="bg-lime-400 text-black py-3 rounded-lg font-bold text-lg hover:bg-lime-300 transition">
               {customTrip ? "Request Quote" : "Confirm Booking"}
