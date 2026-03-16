@@ -11,6 +11,7 @@
     "autoprefixer": "^10.4.0",
     "framer-motion": "^12.35.2",
     "googleapis": "^171.4.0",
+    "lucide-react": "^0.577.0",
     "mapbox-gl": "^3.20.0",
     "next": "14.2.5",
     "nodemailer": "^8.0.2",

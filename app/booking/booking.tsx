@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 
 export default function Booking() {
-
   const searchParams = useSearchParams();
 
   const [form, setForm] = useState({
@@ -16,13 +15,13 @@ export default function Booking() {
     date: "",
     time: "",
     passengers: "",
+    luggage: "",
   });
 
   const [success, setSuccess] = useState(false);
   const [customTrip, setCustomTrip] = useState(false);
 
   useEffect(() => {
-
     const pickup = searchParams.get("pickup");
     const drop = searchParams.get("drop");
     const custom = searchParams.get("custom");
@@ -38,7 +37,6 @@ export default function Booking() {
     if (custom === "true") {
       setCustomTrip(true);
     }
-
   }, [searchParams]);
 
   function submit(e: any) {
@@ -55,7 +53,6 @@ export default function Booking() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-
       <section
         className="h-[40vh] flex items-center justify-center text-center bg-cover bg-center"
         style={{ backgroundImage: "url('/booking.jpg')" }}
@@ -72,14 +69,12 @@ export default function Booking() {
       </section>
 
       <section className="py-20 px-6 flex justify-center">
-
         <motion.div
           className="bg-gray-900 p-10 rounded-xl w-full max-w-2xl shadow-lg"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-
           <h2 className="text-3xl font-bold mb-8 text-lime-400 text-center">
             Ride Details
           </h2>
@@ -97,13 +92,12 @@ export default function Booking() {
           )}
 
           <form onSubmit={submit} className="grid gap-5">
-
             <input
               className="w-full p-3 rounded text-black"
               placeholder="Full Name"
               required
               value={form.name}
-              onChange={(e)=>setForm({...form,name:e.target.value})}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
             />
 
             <input
@@ -111,7 +105,7 @@ export default function Booking() {
               placeholder="Phone Number"
               required
               value={form.phone}
-              onChange={(e)=>setForm({...form,phone:e.target.value})}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
 
             <input
@@ -119,7 +113,7 @@ export default function Booking() {
               placeholder="Pickup Location"
               required
               value={form.pickup}
-              onChange={(e)=>setForm({...form,pickup:e.target.value})}
+              onChange={(e) => setForm({ ...form, pickup: e.target.value })}
             />
 
             <input
@@ -127,11 +121,10 @@ export default function Booking() {
               placeholder="Drop-off Location"
               required
               value={form.drop}
-              onChange={(e)=>setForm({...form,drop:e.target.value})}
+              onChange={(e) => setForm({ ...form, drop: e.target.value })}
             />
 
             <div className="grid md:grid-cols-2 gap-4">
-
               <div>
                 <label className="text-sm text-gray-300 block mb-1">
                   Pickup Date
@@ -143,7 +136,7 @@ export default function Booking() {
                   required
                   min={new Date().toISOString().split("T")[0]}
                   value={form.date}
-                  onChange={(e)=>setForm({...form,date:e.target.value})}
+                  onChange={(e) => setForm({ ...form, date: e.target.value })}
                 />
               </div>
 
@@ -157,33 +150,39 @@ export default function Booking() {
                   className="p-3 rounded text-black w-full"
                   required
                   value={form.time}
-                  onChange={(e)=>setForm({...form,time:e.target.value})}
+                  onChange={(e) => setForm({ ...form, time: e.target.value })}
                 />
               </div>
-
             </div>
 
-            <input
-              type="number"
-              min="1"
-              className="p-3 rounded text-black"
-              placeholder="Number of Passengers"
-              value={form.passengers}
-              onChange={(e)=>setForm({...form,passengers:e.target.value})}
-            />
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                type="number"
+                min="1"
+                className="p-3 rounded text-black"
+                placeholder="Number of Passengers"
+                value={form.passengers}
+                onChange={(e) =>
+                  setForm({ ...form, passengers: e.target.value })
+                }
+              />
 
-            <button
-              className="bg-lime-400 text-black py-3 rounded-lg font-bold text-lg hover:bg-lime-300 transition"
-            >
+              <input
+                type="number"
+                min="0"
+                className="p-3 rounded text-black"
+                placeholder="Number of Luggages"
+                value={form.luggage}
+                onChange={(e) => setForm({ ...form, luggage: e.target.value })}
+              />
+            </div>
+
+            <button className="bg-lime-400 text-black py-3 rounded-lg font-bold text-lg hover:bg-lime-300 transition">
               {customTrip ? "Request Quote" : "Confirm Booking"}
             </button>
-
           </form>
-
         </motion.div>
-
       </section>
-
     </main>
   );
 }

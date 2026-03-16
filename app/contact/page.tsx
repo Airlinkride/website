@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -19,44 +20,14 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CONTACT INFO */}
-      <section className="py-16 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <section className="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        {/* LEFT SIDE — CONTACT FORM */}
         <motion.div
-          className="bg-gray-900 p-8 rounded-xl text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h3 className="text-xl font-bold mb-3 text-lime-400">Phone</h3>
-          <p className="text-gray-300">+1 437-522-8001</p>
-        </motion.div>
-
-        <motion.div
-          className="bg-gray-900 p-8 rounded-xl text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h3 className="text-xl font-bold mb-3 text-lime-400">Email</h3>
-          <p className="text-gray-300">info@airlinkride.com</p>
-        </motion.div>
-
-        <motion.div
-          className="bg-gray-900 p-8 rounded-xl text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h3 className="text-xl font-bold mb-3 text-lime-400">Service Area</h3>
-          <p className="text-gray-300">Toronto & Greater Toronto Area</p>
-        </motion.div>
-      </section>
-
-      {/* CONTACT FORM */}
-      <section className="pb-20 px-6 flex justify-center">
-        <motion.div
-          className="bg-gray-900 p-10 rounded-xl w-full max-w-2xl"
+          className="bg-gray-900 p-10 rounded-xl shadow-lg"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-lime-400 text-center">
+          <h2 className="text-3xl font-bold mb-6 text-lime-400">
             Send Us a Message
           </h2>
 
@@ -90,6 +61,71 @@ export default function Contact() {
             </button>
           </form>
         </motion.div>
+
+        {/* RIGHT SIDE — CONTACT DETAILS */}
+        <div className="flex flex-col gap-8">
+          {/* PHONE */}
+          <motion.div
+            className="bg-gray-900 p-8 rounded-xl shadow-lg flex items-start gap-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
+            <Phone className="text-lime-400 w-6 h-6 mt-1" />
+
+            <div>
+              <h3 className="text-xl font-bold mb-1 text-lime-400">Phone</h3>
+
+              <a
+                href="tel:+14375228001"
+                className="text-gray-300 hover:text-lime-400 transition"
+              >
+                +1 437-522-8001
+              </a>
+            </div>
+          </motion.div>
+
+          {/* EMAIL */}
+          <motion.div
+            className="bg-gray-900 p-8 rounded-xl shadow-lg flex items-start gap-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
+            <Mail className="text-lime-400 w-6 h-6 mt-1" />
+
+            <div>
+              <h3 className="text-xl font-bold mb-1 text-lime-400">Email</h3>
+
+              <a
+                href="mailto:info@airlinkride.com"
+                className="text-gray-300 hover:text-lime-400 transition"
+              >
+                info@airlinkride.com
+              </a>
+            </div>
+          </motion.div>
+
+          {/* SERVICE AREA */}
+          <motion.div
+            className="bg-gray-900 p-8 rounded-xl shadow-lg flex gap-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
+            <MapPin className="text-lime-400 w-8 h-8 mt-1 flex-shrink-0" />
+
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-lime-400">
+                Service Area
+              </h3>
+
+              <p className="text-gray-300 leading-relaxed">
+                Serving Toronto, the Greater Toronto Area (GTA), and
+                destinations across Ontario including Hamilton, Niagara Falls,
+                London, Kingston, Ottawa, Windsor, and cross-border trips to
+                Buffalo and Detroit.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* MAP PLACEHOLDER */}
