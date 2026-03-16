@@ -27,48 +27,67 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-black text-white sticky top-0 z-50 shadow-md">
+    <nav className="bg-black text-white sticky top-0 z-50 border-b border-gray-900">
+
       <div
         ref={menuRef}
-        className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+        className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between"
       >
+
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 group">
           <Image
             src="/logo.png"
             alt="AirLinkRide Logo"
-            width={45}
-            height={45}
+            width={60}
+            height={60}
             priority
+            className="group-hover:scale-105 transition"
           />
-          <span className="text-xl font-bold tracking-wide">
+
+          <span className="text-xl font-semibold tracking-wide">
             AirLinkRide
           </span>
         </Link>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-8 font-medium">
-          <Link href="/" className="hover:text-lime-400 transition">
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+
+          <Link
+            href="/"
+            className="hover:text-lime-400 transition"
+          >
             Home
           </Link>
 
-          <Link href="/about" className="hover:text-lime-400 transition">
+          <Link
+            href="/about"
+            className="hover:text-lime-400 transition"
+          >
             About
           </Link>
 
-          <Link href="/rates" className="hover:text-lime-400 transition">
+          <Link
+            href="/rates"
+            className="hover:text-lime-400 transition"
+          >
             Rates
           </Link>
 
-          <Link href="/contact" className="hover:text-lime-400 transition">
+          <Link
+            href="/contact"
+            className="hover:text-lime-400 transition"
+          >
             Contact
           </Link>
 
+          {/* BOOK BUTTON */}
           <Link href="/booking">
-            <button className="bg-lime-400 text-black px-5 py-2 rounded-lg font-semibold hover:bg-lime-300 transition">
+            <button className="bg-lime-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-lime-300 transition shadow-md">
               Book Ride
             </button>
           </Link>
+
         </div>
 
         {/* MOBILE BUTTON */}
@@ -78,14 +97,18 @@ export default function Navbar() {
         >
           {menuOpen ? "✕" : "☰"}
         </button>
+
       </div>
 
       {/* MOBILE MENU */}
-      {menuOpen && (
-        <div
-          ref={menuRef}
-          className="md:hidden flex flex-col gap-6 px-6 pb-6 bg-black font-medium border-t border-gray-800"
-        >
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          menuOpen ? "max-h-96" : "max-h-0"
+        }`}
+      >
+
+        <div className="flex flex-col gap-6 px-6 py-6 bg-black border-t border-gray-900 text-center">
+
           <Link href="/" onClick={() => setMenuOpen(false)}>
             Home
           </Link>
@@ -103,12 +126,14 @@ export default function Navbar() {
           </Link>
 
           <Link href="/booking" onClick={() => setMenuOpen(false)}>
-            <button className="bg-lime-400 text-black px-5 py-2 rounded-lg font-semibold w-full">
+            <button className="bg-lime-400 text-black px-6 py-3 rounded-full font-semibold w-full hover:bg-lime-300 transition">
               Book Ride
             </button>
           </Link>
+
         </div>
-      )}
+
+      </div>
     </nav>
   );
 }

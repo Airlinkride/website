@@ -3,10 +3,14 @@ import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("Missing RESEND_API_KEY")
+}
+
 export async function POST(req: Request) {
   try {
 
-    const body = await req.json()
+    const body = await req.json().catch(() => ({}))
 
     const { name, email, phone, pickup, drop, date, time, passengers } = body
 
@@ -19,7 +23,7 @@ export async function POST(req: Request) {
         <h2>Booking Confirmed</h2>
         <p>Hi ${name},</p>
 
-        <p>Your airport ride has been received.</p>
+        <p>Your airport ride request has been received.</p>
 
         <p><strong>Pickup:</strong> ${pickup}</p>
         <p><strong>Drop-off:</strong> ${drop}</p>
@@ -55,6 +59,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true })
 
   } catch (error) {
-    return NextResponse.json({ error: "Failed to send email" })
+
+    console.error("Email error:", error)
+
+    return NextResponse.json(
+      { error: "Failed to send email" },
+      { status: 500 }
+    )
+
   }
 }
