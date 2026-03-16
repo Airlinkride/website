@@ -21,7 +21,6 @@ export default function Booking() {
   const [success, setSuccess] = useState(false);
   const [customTrip, setCustomTrip] = useState(false);
 
-  // Autofill pickup/drop from URL
   useEffect(() => {
 
     const pickup = searchParams.get("pickup");
@@ -57,7 +56,6 @@ export default function Booking() {
   return (
     <main className="min-h-screen bg-black text-white">
 
-      {/* HERO */}
       <section
         className="h-[40vh] flex items-center justify-center text-center bg-cover bg-center"
         style={{ backgroundImage: "url('/booking.jpg')" }}
@@ -73,7 +71,6 @@ export default function Booking() {
         </div>
       </section>
 
-      {/* BOOKING FORM */}
       <section className="py-20 px-6 flex justify-center">
 
         <motion.div
