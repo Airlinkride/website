@@ -4,19 +4,232 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Rates() {
-  const rates = [
-    { from: "Toronto Downtown", to: "Pearson Airport", price: "$45" },
-    { from: "Mississauga", to: "Pearson Airport", price: "$30" },
-    { from: "Scarborough", to: "Pearson Airport", price: "$55" },
-    { from: "North York", to: "Pearson Airport", price: "$50" },
-    { from: "Markham", to: "Pearson Airport", price: "$60" },
-    { from: "Brampton", to: "Pearson Airport", price: "$40" },
+  const rateCategories = [
+    {
+      title: "Category A",
+      rates: [
+        { location: "Acton", sedan: 106, suv: 117 },
+        { location: "Airport Hotel Area", sedan: 60, suv: 85 },
+        { location: "Ajax", sedan: 100, suv: 110 },
+        { location: "Alliston", sedan: 140, suv: 150 },
+        { location: "Ancaster", sedan: 123, suv: 137 },
+        { location: "Ashburn", sedan: 130, suv: 150 },
+        { location: "Aurora", sedan: 99, suv: 105 },
+      ],
+    },
+
+    {
+      title: "Category B",
+      rates: [
+        { location: "Barrie", sedan: 170, suv: 180 },
+        { location: "Belleville", sedan: 370, suv: 399 },
+        { location: "Beaches Area", sedan: 84, suv: 105 },
+        { location: "Bolton", sedan: 75, suv: 80 },
+        { location: "Bracebridge", sedan: 330, suv: 370 },
+        { location: "Bradford", sedan: 119, suv: 129 },
+        { location: "Brampton", sedan: 79, suv: 85 },
+        { location: "Brantford", sedan: 180, suv: 190 },
+        { location: "Brighton", sedan: 330, suv: 350 },
+        { location: "Brockville", sedan: 650, suv: 710 },
+        { location: "Brooklin", sedan: 130, suv: 140 },
+        { location: "Buffalo Airport", sedan: 340, suv: 350 },
+        { location: "Burlington", sedan: 99, suv: 109 },
+        { location: "Buttonville", sedan: 79, suv: 89 },
+      ],
+    },
+
+    {
+      title: "Category C",
+      rates: [
+        { location: "Caledon", sedan: 89, suv: 99 },
+        { location: "Cambridge", sedan: 150, suv: 169 },
+        { location: "Campbellville", sedan: 95, suv: 100 },
+        { location: "Chatham-Kent", sedan: 535, suv: 555 },
+        { location: "Claremont", sedan: 110, suv: 120 },
+        { location: "Clarington", sedan: 179, suv: 189 },
+        { location: "Cobourg", sedan: 230, suv: 250 },
+        { location: "Collingwood", sedan: 255, suv: 280 },
+        { location: "Concord", sedan: 60, suv: 70 },
+        { location: "Courtice", sedan: 149, suv: 160 },
+      ],
+    },
+
+    {
+      title: "Category D",
+      rates: [
+        { location: "Davisville", sedan: 60, suv: 70 },
+        { location: "Detroit", sedan: 670, suv: 730 },
+        { location: "Downtown Toronto", sedan: 80, suv: 99 },
+        { location: "Dundas", sedan: 120, suv: 130 },
+      ],
+    },
+
+    {
+      title: "Category E",
+      rates: [
+        { location: "East York", sedan: 84, suv: 105 },
+        { location: "Etobicoke", sedan: 50, suv: 60 },
+        { location: "Fort Erie", sedan: 280, suv: 300 },
+      ],
+    },
+
+    {
+      title: "Category G",
+      rates: [
+        { location: "Georgetown", sedan: 80, suv: 89 },
+        { location: "Goodwood", sedan: 123, suv: 137 },
+        { location: "Gravenhurst", sedan: 300, suv: 330 },
+        { location: "Grimsby", sedan: 145, suv: 160 },
+        { location: "Guelph", sedan: 137, suv: 152 },
+      ],
+    },
+
+    {
+      title: "Category H",
+      rates: [
+        { location: "Hamilton", sedan: 130, suv: 140 },
+        { location: "Hayden", sedan: 197, suv: 219 },
+        { location: "Huntsville", sedan: 399, suv: 440 },
+      ],
+    },
+
+    {
+      title: "Category I",
+      rates: [{ location: "Ingersoll", sedan: 259, suv: 280 }],
+    },
+
+    {
+      title: "Category K",
+      rates: [
+        { location: "Keswick", sedan: 153, suv: 169 },
+        { location: "Kilbride", sedan: 109, suv: 115 },
+        { location: "King City", sedan: 80, suv: 89 },
+        { location: "Kingston", sedan: 499, suv: 530 },
+        { location: "Kitchener", sedan: 170, suv: 180 },
+      ],
+    },
+
+    {
+      title: "Category L",
+      rates: [
+        { location: "Leaside Area", sedan: 81, suv: 100 },
+        { location: "London", sedan: 330, suv: 360 },
+        { location: "Loyalist", sedan: 475, suv: 525 },
+      ],
+    },
+
+    {
+      title: "Category M",
+      rates: [
+        { location: "Maple", sedan: 69, suv: 75 },
+        { location: "Markham", sedan: 80, suv: 90 },
+        { location: "Milton", sedan: 80, suv: 90 },
+        { location: "Mississauga", sedan: 50, suv: 60 },
+        { location: "Moore Park", sedan: 79, suv: 99 },
+        { location: "Midtown", sedan: 60, suv: 70 },
+        { location: "Montreal", sedan: 1000, suv: 1150 },
+      ],
+    },
+
+    {
+      title: "Category N",
+      rates: [
+        { location: "Napanee", sedan: 450, suv: 500 },
+        { location: "Newmarket", sedan: 100, suv: 110 },
+        { location: "Niagara Falls ON", sedan: 229, suv: 250 },
+        { location: "North York", sedan: 60, suv: 70 },
+      ],
+    },
+
+    {
+      title: "Category O",
+      rates: [
+        { location: "Oakville", sedan: 69, suv: 80 },
+        { location: "Orangeville", sedan: 110, suv: 130 },
+        { location: "Orillia", sedan: 237, suv: 260 },
+        { location: "Orono", sedan: 183, suv: 200 },
+        { location: "Oshawa", sedan: 120, suv: 130 },
+        { location: "Ottawa", sedan: 850, suv: 900 },
+        { location: "Owen Sound", sedan: 329, suv: 360 },
+      ],
+    },
+
+    {
+      title: "Category P",
+      rates: [
+        { location: "Parry Sound", sedan: 399, suv: 440 },
+        { location: "Peterborough", sedan: 260, suv: 280 },
+        { location: "Pickering", sedan: 97, suv: 100 },
+        { location: "Picton", sedan: 420, suv: 450 },
+        { location: "Port Colborne", sedan: 260, suv: 280 },
+        { location: "Port Dover", sedan: 250, suv: 280 },
+        { location: "Port Hope", sedan: 215, suv: 239 },
+      ],
+    },
+
+    {
+      title: "Category R",
+      rates: [
+        { location: "Richmond Hill", sedan: 79, suv: 85 },
+        { location: "Rockport", sedan: 545, suv: 565 },
+        { location: "Rosedale", sedan: 65, suv: 70 },
+      ],
+    },
+
+    {
+      title: "Category S",
+      rates: [
+        { location: "Schomberg", sedan: 90, suv: 100 },
+        { location: "St Catharines", sedan: 200, suv: 210 },
+        { location: "Stoney Creek", sedan: 135, suv: 140 },
+        { location: "Stouffville", sedan: 110, suv: 120 },
+        { location: "Scarborough", sedan: 79, suv: 90 },
+      ],
+    },
+
+    {
+      title: "Category T",
+      rates: [
+        { location: "Thornhill", sedan: 70, suv: 80 },
+        { location: "The Danforth Area", sedan: 84, suv: 104 },
+        { location: "Trenton", sedan: 340, suv: 370 },
+      ],
+    },
+
+    {
+      title: "Category U",
+      rates: [
+        { location: "Unionville", sedan: 80, suv: 89 },
+        { location: "Uxbridge", sedan: 142, suv: 155 },
+      ],
+    },
+
+    {
+      title: "Category V",
+      rates: [
+        { location: "Vaughan", sedan: 60, suv: 70 },
+        { location: "Victoria", sedan: 80, suv: 90 },
+      ],
+    },
+
+    {
+      title: "Category W",
+      rates: [
+        { location: "Wasaga Beach", sedan: 230, suv: 255 },
+        { location: "Waterdown", sedan: 110, suv: 120 },
+        { location: "Waterloo", sedan: 180, suv: 190 },
+        { location: "Whitby", sedan: 120, suv: 130 },
+        { location: "Windsor", sedan: 670, suv: 730 },
+        { location: "Woodbridge", sedan: 50, suv: 60 },
+        { location: "Woodstock", sedan: 230, suv: 250 },
+        { location: "Woodbine Garden", sedan: 82, suv: 99 },
+        { location: "Woodbine Heights", sedan: 82, suv: 99 },
+      ],
+    },
   ];
 
   return (
     <main className="min-h-screen bg-black text-white">
-      
-      {/* HERO */}
       <section
         className="h-[50vh] flex items-center justify-center text-center bg-cover bg-center"
         style={{ backgroundImage: "url('/toronto-airport-limo-rates.jpg')" }}
@@ -24,152 +237,79 @@ export default function Rates() {
         <div className="bg-black/60 p-10 rounded-lg">
           <h1 className="text-5xl font-bold mb-4">Airport Ride Rates</h1>
           <p className="text-gray-300">
-            Affordable and transparent pricing across Toronto
+            Flat rate pricing from Toronto Pearson Airport
           </p>
+          <Link href="/booking?custom=true">
+          <button className="mt-8 bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-300 transition shadow-lg">
+            Request Custom Quote
+          </button>
+        </Link>
         </div>
       </section>
 
-      {/* RATES GRID */}
+      {/* <section className="py-10 px-6 max-w-6xl mx-auto flex justify-end">
+        <Link href="/booking?custom=true">
+          <button className="bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-300 transition shadow-lg">
+            Request Custom Quote
+          </button>
+        </Link>
+      </section> */}
+
       <section className="py-20 px-6 max-w-6xl mx-auto">
-
-        <motion.h2
-          className="text-4xl font-bold text-center mb-12 text-lime-400"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          Popular Routes
-        </motion.h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-
-          {/* RATE CARDS */}
-          {rates.map((rate, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-900 p-8 rounded-xl text-center border border-gray-800 hover:border-lime-400 transition"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
+        {rateCategories.map((cat, i) => (
+          <div key={i} className="mb-16">
+            <motion.h2
+              className="text-3xl font-bold mb-6 text-lime-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
             >
-              <h3 className="text-xl font-bold mb-2">{rate.from}</h3>
+              {cat.title}
+            </motion.h2>
 
-              <p className="text-gray-400 mb-4">→ {rate.to}</p>
+            <div className="overflow-x-auto">
+              <table className="w-full table-fixed border border-gray-800">
+                <thead className="bg-gray-900 text-lime-400">
+                  <tr>
+                    <th className="w-[40%] text-left p-4">Location</th>
+                    <th className="w-[20%] text-center p-4">Sedan</th>
+                    <th className="w-[20%] text-center p-4">SUV</th>
+                    <th className="w-[20%] text-center p-4">Book</th>
+                  </tr>
+                </thead>
 
-              <p className="text-3xl font-bold text-lime-400">{rate.price}</p>
+                <tbody>
+                  {cat.rates.map((r, index) => (
+                    <tr
+                      key={index}
+                      className="border-t border-gray-800 hover:bg-gray-900"
+                    >
+                      <td className="p-4">{r.location}</td>
 
-              <Link href={`/booking?pickup=${rate.from}&drop=${rate.to}`}>
-                <button className="mt-6 bg-lime-400 text-black px-6 py-2 rounded hover:bg-lime-300 transition">
-                  Book Ride
-                </button>
-              </Link>
-            </motion.div>
-          ))}
+                      <td className="text-center p-4 text-lime-400 font-semibold">
+                        ${r.sedan}
+                      </td>
 
-          {/* CUSTOM TRIP CARD */}
-          <motion.div
-            className="bg-gray-900 p-8 rounded-xl text-center border-2 border-lime-400 flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3 className="text-2xl font-bold mb-4 text-lime-400">
-              Custom Trip
-            </h3>
+                      <td className="text-center p-4 text-lime-400 font-semibold">
+                        ${r.suv}
+                      </td>
 
-            <p className="text-gray-400 mb-6">
-              Need a ride outside our listed routes?  
-              Tell us your pickup and destination and we will provide a custom quote.
-            </p>
-
-            <p className="text-lg font-semibold mb-6">
-              Flexible Pricing
-            </p>
-
-            <Link href="/booking?custom=true">
-              <button className="bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-300 transition">
-                Request Quote
-              </button>
-            </Link>
-          </motion.div>
-
-        </div>
-
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20 px-6 bg-gray-900">
-        <div className="max-w-5xl mx-auto">
-
-          <motion.h2
-            className="text-4xl font-bold text-center mb-12 text-lime-400"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-          >
-            Frequently Asked Questions
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-
-            <motion.div
-              className="bg-black p-6 rounded-xl border border-gray-800 hover:border-lime-400 transition"
-              whileHover={{ scale: 1.03 }}
-            >
-              <h3 className="font-semibold text-lg mb-3">
-                How much does a Toronto airport limo cost?
-              </h3>
-              <p className="text-gray-400">
-                Pricing depends on pickup location and vehicle type. Most
-                airport limo services offer flat-rate pricing rather than
-                metered fares so you know your cost in advance.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-black p-6 rounded-xl border border-gray-800 hover:border-lime-400 transition"
-              whileHover={{ scale: 1.03 }}
-            >
-              <h3 className="font-semibold text-lg mb-3">
-                Do you provide airport pickups from Pearson Airport?
-              </h3>
-              <p className="text-gray-400">
-                Yes. Our chauffeurs provide pickups from both Terminal 1 and
-                Terminal 3 at Toronto Pearson International Airport with
-                real-time flight tracking.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-black p-6 rounded-xl border border-gray-800 hover:border-lime-400 transition"
-              whileHover={{ scale: 1.03 }}
-            >
-              <h3 className="font-semibold text-lg mb-3">
-                Is your limo service available 24/7?
-              </h3>
-              <p className="text-gray-400">
-                Yes. AirLink Ride operates 24 hours a day, 7 days a week.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-black p-6 rounded-xl border border-gray-800 hover:border-lime-400 transition"
-              whileHover={{ scale: 1.03 }}
-            >
-              <h3 className="font-semibold text-lg mb-3">
-                Can I book a ride in advance?
-              </h3>
-              <p className="text-gray-400">
-                Yes. We recommend booking your airport limo in advance.
-              </p>
-            </motion.div>
-
+                      <td className="text-center p-4">
+                        <Link
+                          href={`/booking?pickup=${r.location}&drop=Pearson Airport`}
+                        >
+                          <button className="bg-lime-400 text-black px-4 py-2 rounded hover:bg-lime-300 transition">
+                            Book
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-
-        </div>
+        ))}
       </section>
-
     </main>
   );
 }
