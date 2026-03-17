@@ -240,10 +240,10 @@ export default function Rates() {
             Flat rate pricing from Toronto Pearson Airport
           </p>
           <Link href="/booking?custom=true">
-          <button className="mt-8 bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-300 transition shadow-lg">
-            Request Custom Quote
-          </button>
-        </Link>
+            <button className="mt-8 bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-300 transition shadow-lg">
+              Request Custom Quote
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -267,13 +267,15 @@ export default function Rates() {
             </motion.h2>
 
             <div className="overflow-x-auto">
-              <table className="w-full table-fixed border border-gray-800">
+              <table className="min-w-[520px] w-full border border-gray-800">
                 <thead className="bg-gray-900 text-lime-400">
                   <tr>
-                    <th className="w-[40%] text-left p-4">Location</th>
-                    <th className="w-[20%] text-center p-4">Sedan</th>
-                    <th className="w-[20%] text-center p-4">SUV</th>
-                    <th className="w-[20%] text-center p-4">Book</th>
+                    <th className="text-left p-3 whitespace-nowrap">
+                      Location
+                    </th>
+                    <th className="text-center p-3 whitespace-nowrap">Sedan</th>
+                    <th className="text-center p-3 whitespace-nowrap">SUV</th>
+                    <th className="text-center p-3 whitespace-nowrap">Book</th>
                   </tr>
                 </thead>
 
@@ -283,21 +285,21 @@ export default function Rates() {
                       key={index}
                       className="border-t border-gray-800 hover:bg-gray-900"
                     >
-                      <td className="p-4">{r.location}</td>
+                      <td className="p-3 whitespace-nowrap">{r.location}</td>
 
-                      <td className="text-center p-4 text-lime-400 font-semibold">
+                      <td className="text-center p-3 text-lime-400 font-semibold whitespace-nowrap">
                         ${r.sedan}
                       </td>
 
-                      <td className="text-center p-4 text-lime-400 font-semibold">
+                      <td className="text-center p-3 text-lime-400 font-semibold whitespace-nowrap">
                         ${r.suv}
                       </td>
 
-                      <td className="text-center p-4">
+                      <td className="text-center p-3">
                         <Link
                           href={`/booking?pickup=${r.location}&drop=Pearson Airport`}
                         >
-                          <button className="bg-lime-400 text-black px-4 py-2 rounded hover:bg-lime-300 transition">
+                          <button className="bg-lime-400 text-black px-3 py-1.5 text-sm rounded hover:bg-lime-300 transition whitespace-nowrap">
                             Book
                           </button>
                         </Link>
