@@ -61,7 +61,7 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="/about"
+            href="/about-us"
             className="hover:text-lime-400 transition"
           >
             About
@@ -113,7 +113,7 @@ export default function Navbar() {
             Home
           </Link>
 
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
+          <Link href="/about-us" onClick={() => setMenuOpen(false)}>
             About
           </Link>
 
