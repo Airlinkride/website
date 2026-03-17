@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
 
 export default function Booking() {
   const searchParams = useSearchParams();
+
+  const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -20,7 +23,6 @@ export default function Booking() {
     flightNumber: "",
   });
 
-  const [success, setSuccess] = useState(false);
   const [customTrip, setCustomTrip] = useState(false);
 
   useEffect(() => {
@@ -42,19 +44,21 @@ export default function Booking() {
   }, [searchParams]);
 
   async function submit(e: any) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const res = await fetch("/api/book", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(form),
-  });
+    if (loading) return;
 
-  if (res.ok) {
-    setSuccess(true);
+    setLoading(true);
 
+    // Capture current form data before resetting
+    const bookingData = { ...form };
+
+    // Show toast immediately
+    toast.success(
+      "Booking received! A confirmation email will arrive shortly."
+    );
+
+    // Clear form instantly
     setForm({
       name: "",
       phone: "",
@@ -68,14 +72,43 @@ export default function Booking() {
       flightNumber: "",
     });
 
-    setTimeout(() => {
-      setSuccess(false);
-    }, 4000);
+    // Send API request in background
+    fetch("/api/book", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingData),
+    })
+      .catch(() => {
+        toast.error("Unable to send confirmation email.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
-}
 
   return (
     <main className="min-h-screen bg-black text-white">
+
+      {/* Toast UI */}
+      <Toaster
+        position="top-center"
+        gutter={10}
+        containerStyle={{ top: 20 }}
+        toastOptions={{
+          duration: 4500,
+          style: {
+            background: "#84cc16",
+            color: "#000",
+            fontWeight: "600",
+            padding: "14px 20px",
+            borderRadius: "8px",
+            fontSize: "15px",
+          },
+        }}
+      />
+
       <section
         className="h-[40vh] flex items-center justify-center text-center bg-cover bg-center"
         style={{ backgroundImage: "url('/booking.jpg')" }}
@@ -108,13 +141,8 @@ export default function Booking() {
             </div>
           )}
 
-          {success && (
-            <div className="bg-green-500 text-black p-3 rounded mb-6 text-center font-semibold">
-              Ride request submitted! We will contact you shortly.
-            </div>
-          )}
-
           <form onSubmit={submit} className="grid gap-5">
+
             <input
               className="w-full p-3 rounded text-black"
               placeholder="Full Name"
@@ -124,9 +152,11 @@ export default function Booking() {
             />
 
             <input
+              type="tel"
               className="w-full p-3 rounded text-black"
               placeholder="Phone Number"
               required
+              pattern="[0-9]{10,15}"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
@@ -137,6 +167,7 @@ export default function Booking() {
               placeholder="Email Address"
               required
               value={form.email}
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
 
@@ -188,6 +219,7 @@ export default function Booking() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
+
               <input
                 type="number"
                 min="1"
@@ -207,6 +239,7 @@ export default function Booking() {
                 value={form.luggage}
                 onChange={(e) => setForm({ ...form, luggage: e.target.value })}
               />
+
             </div>
 
             <input
@@ -218,9 +251,21 @@ export default function Booking() {
               }
             />
 
-            <button className="bg-lime-400 text-black py-3 rounded-lg font-bold text-lg hover:bg-lime-300 transition">
-              {customTrip ? "Request Quote" : "Confirm Booking"}
+            <button
+              disabled={loading}
+              className={`py-3 rounded-lg font-bold text-lg transition ${
+                loading
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-lime-400 text-black hover:bg-lime-300"
+              }`}
+            >
+              {loading
+                ? "Submitting..."
+                : customTrip
+                ? "Request Quote"
+                : "Confirm Booking"}
             </button>
+
           </form>
         </motion.div>
       </section>

@@ -1,13 +1,9 @@
-import { NextResponse } from "next/server"
-import { Resend } from "resend"
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
-export async function POST(req: Request) {
-
+export async function POST(req) {
   try {
 
-    const body = await req.json()
+    const body = await req.json();
 
     const {
       name,
@@ -20,12 +16,19 @@ export async function POST(req: Request) {
       passengers,
       luggage,
       flightNumber
-    } = body
+    } = body;
 
-    /* EMAIL TO CUSTOMER */
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+      }
+    });
 
-    await resend.emails.send({
-      from: "AirLinkRide <booking@airlinkride.com>",
+    // EMAIL TO CUSTOMER
+    await transporter.sendMail({
+      from: `"AirLinkRide" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Your AirLinkRide Booking Confirmation",
       html: `
@@ -50,14 +53,12 @@ export async function POST(req: Request) {
         <p><strong>AirLinkRide</strong></p>
         <p>+1 437-522-8001</p>
       `
-    })
+    });
 
-
-    /* EMAIL TO YOU */
-
-    await resend.emails.send({
-      from: "AirLinkRide <booking@airlinkride.com>",
-      to: "info@airlinkride.com",
+    // EMAIL TO YOU
+    await transporter.sendMail({
+      from: `"AirLinkRide Booking" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
       subject: "New Ride Booking",
       html: `
         <h2>New Booking</h2>
@@ -73,14 +74,17 @@ export async function POST(req: Request) {
         <p><strong>Luggage:</strong> ${luggage}</p>
         <p><strong>Flight:</strong> ${flightNumber || "N/A"}</p>
       `
-    })
+    });
 
-    return NextResponse.json({ success: true })
+    return Response.json({ success: true });
 
   } catch (error) {
 
-    console.error(error)
+    console.error("Email Error:", error);
 
-    return NextResponse.json({ error: "Email failed" })
+    return Response.json(
+      { error: "Failed to send email" },
+      { status: 500 }
+    );
   }
 }

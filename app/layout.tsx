@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ReactNode } from "react";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Toronto Airport Limo Service | AirLink Ride",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className="bg-black text-white flex flex-col min-h-screen">
         <Navbar />
+        <Toaster position="top-right" />
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
