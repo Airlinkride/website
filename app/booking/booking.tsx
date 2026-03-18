@@ -21,6 +21,7 @@ export default function Booking() {
     passengers: "",
     luggage: "",
     flightNumber: "",
+    vehicle: "",
   });
 
   const [customTrip, setCustomTrip] = useState(false);
@@ -55,7 +56,7 @@ export default function Booking() {
 
     // Show toast immediately
     toast.success(
-      "Booking received! A confirmation email will arrive shortly."
+      "Booking received! A confirmation email will arrive shortly.",
     );
 
     // Clear form instantly
@@ -90,7 +91,6 @@ export default function Booking() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-
       {/* Toast UI */}
       <Toaster
         position="top-center"
@@ -142,7 +142,6 @@ export default function Booking() {
           )}
 
           <form onSubmit={submit} className="grid gap-5">
-
             <input
               className="w-full p-3 rounded text-black"
               placeholder="Full Name"
@@ -219,7 +218,6 @@ export default function Booking() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
-
               <input
                 type="number"
                 min="1"
@@ -239,7 +237,40 @@ export default function Booking() {
                 value={form.luggage}
                 onChange={(e) => setForm({ ...form, luggage: e.target.value })}
               />
+            </div>
 
+            <div>
+              <label className="text-sm text-gray-300 block mb-2">
+                Select Vehicle Type
+              </label>
+
+              <div className="grid grid-cols-2 gap-4">
+                {/* Sedan */}
+                <button
+                  type="button"
+                  onClick={() => setForm({ ...form, vehicle: "Sedan" })}
+                  className={`p-3 rounded border font-semibold transition ${
+                    form.vehicle === "Sedan"
+                      ? "bg-lime-400 text-black border-lime-400"
+                      : "bg-gray-800 border-gray-700 hover:border-lime-400"
+                  }`}
+                >
+                  Sedan
+                </button>
+
+                {/* SUV */}
+                <button
+                  type="button"
+                  onClick={() => setForm({ ...form, vehicle: "SUV" })}
+                  className={`p-3 rounded border font-semibold transition ${
+                    form.vehicle === "SUV"
+                      ? "bg-lime-400 text-black border-lime-400"
+                      : "bg-gray-800 border-gray-700 hover:border-lime-400"
+                  }`}
+                >
+                  SUV
+                </button>
+              </div>
             </div>
 
             <input
@@ -262,10 +293,9 @@ export default function Booking() {
               {loading
                 ? "Submitting..."
                 : customTrip
-                ? "Request Quote"
-                : "Confirm Booking"}
+                  ? "Request Quote"
+                  : "Confirm Booking"}
             </button>
-
           </form>
         </motion.div>
       </section>

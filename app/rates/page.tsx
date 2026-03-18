@@ -239,6 +239,7 @@ export default function Rates() {
           <p className="text-gray-300">
             Flat rate pricing from Toronto Pearson Airport
           </p>
+
           <Link href="/booking?custom=true">
             <button className="mt-8 bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-300 transition shadow-lg">
               Request Custom Quote
@@ -247,35 +248,33 @@ export default function Rates() {
         </div>
       </section>
 
-      {/* <section className="py-10 px-6 max-w-6xl mx-auto flex justify-end">
-        <Link href="/booking?custom=true">
-          <button className="bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-300 transition shadow-lg">
-            Request Custom Quote
-          </button>
-        </Link>
-      </section> */}
-
-      <section className="py-20 px-6 max-w-6xl mx-auto">
+      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto">
         {rateCategories.map((cat, i) => (
           <div key={i} className="mb-16">
             <motion.h2
-              className="text-3xl font-bold mb-6 text-lime-400"
+              className="text-3xl font-bold mb-6 text-lime-400 border-b border-gray-800 pb-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
             >
               {cat.title}
             </motion.h2>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-[520px] w-full border border-gray-800">
-                <thead className="bg-gray-900 text-lime-400">
+            <div className="w-full overflow-x-auto">
+              <table className="w-full table-fixed border border-gray-800 text-sm md:text-base">
+                <thead className="bg-gray-900 text-lime-400 sticky top-0 z-10">
                   <tr>
-                    <th className="text-left p-3 whitespace-nowrap">
+                    <th className="w-[40%] text-left p-3 border-r border-gray-800">
                       Location
                     </th>
-                    <th className="text-center p-3 whitespace-nowrap">Sedan</th>
-                    <th className="text-center p-3 whitespace-nowrap">SUV</th>
-                    <th className="text-center p-3 whitespace-nowrap">Book</th>
+                    <th className="w-[20%] text-center p-3 border-r border-gray-800">
+                      Sedan
+                    </th>
+                    <th className="w-[20%] text-center p-3 border-r border-gray-800">
+                      SUV
+                    </th>
+                    <th className="w-[20%] text-center p-3">
+                      Book
+                    </th>
                   </tr>
                 </thead>
 
@@ -283,23 +282,27 @@ export default function Rates() {
                   {cat.rates.map((r, index) => (
                     <tr
                       key={index}
-                      className="border-t border-gray-800 hover:bg-gray-900"
+                      className="border-t border-gray-800 hover:bg-gray-900 transition"
                     >
-                      <td className="p-3 whitespace-nowrap">{r.location}</td>
+                      <td className="p-3 border-r border-gray-800">
+                        {r.location}
+                      </td>
 
-                      <td className="text-center p-3 text-lime-400 font-semibold whitespace-nowrap">
+                      <td className="text-center p-3 text-lime-400 font-semibold border-r border-gray-800">
                         ${r.sedan}
                       </td>
 
-                      <td className="text-center p-3 text-lime-400 font-semibold whitespace-nowrap">
+                      <td className="text-center p-3 text-lime-400 font-semibold border-r border-gray-800">
                         ${r.suv}
                       </td>
 
                       <td className="text-center p-3">
                         <Link
-                          href={`/booking?pickup=${r.location}&drop=Pearson Airport`}
+                          href={`/booking?pickup=${encodeURIComponent(
+                            r.location
+                          )}&drop=Pearson Airport`}
                         >
-                          <button className="bg-lime-400 text-black px-3 py-1.5 text-sm rounded hover:bg-lime-300 transition whitespace-nowrap">
+                          <button className="bg-lime-400 text-black px-3 py-1.5 text-sm rounded hover:bg-lime-300 transition">
                             Book
                           </button>
                         </Link>

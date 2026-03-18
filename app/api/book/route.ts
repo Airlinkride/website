@@ -15,7 +15,8 @@ export async function POST(req) {
       time,
       passengers,
       luggage,
-      flightNumber
+      flightNumber,
+      vehicle
     } = body;
 
     const transporter = nodemailer.createTransport({
@@ -45,6 +46,7 @@ export async function POST(req) {
         <p><strong>Passengers:</strong> ${passengers}</p>
         <p><strong>Luggage:</strong> ${luggage}</p>
         <p><strong>Flight:</strong> ${flightNumber || "N/A"}</p>
+        <p><strong>Vehicle:</strong> ${vehicle}</p>
 
         <br/>
 
@@ -73,6 +75,7 @@ export async function POST(req) {
         <p><strong>Passengers:</strong> ${passengers}</p>
         <p><strong>Luggage:</strong> ${luggage}</p>
         <p><strong>Flight:</strong> ${flightNumber || "N/A"}</p>
+        <p><strong>Vehicle:</strong> ${vehicle}</p>
       `
     });
 
