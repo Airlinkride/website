@@ -3,6 +3,11 @@ import nodemailer from "nodemailer";
 export async function POST(req) {
   try {
 
+    console.log("ENV CHECK:", {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    });
+
     const body = await req.json();
 
     const {
