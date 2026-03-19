@@ -6,8 +6,8 @@ export async function POST(req) {
   try {
 
     console.log("ENV CHECK:", {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: process.env.NEXT_PUBLIC_EMAIL_USER,
+      pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
     });
 
     const body = await req.json();
