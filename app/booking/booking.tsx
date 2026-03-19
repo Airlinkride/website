@@ -71,6 +71,7 @@ export default function Booking() {
       passengers: "",
       luggage: "",
       flightNumber: "",
+      vehicle: "",
     });
 
     // Send API request in background
