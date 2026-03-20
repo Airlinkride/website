@@ -4,10 +4,9 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
-    // Debug (you can remove later)
     console.log("ENV CHECK:", {
-      user: process.env.NEXT_PUBLIC_EMAIL_USER,
-      pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     });
 
     const body = await req.json();
@@ -30,14 +29,14 @@ export async function POST(req) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.NEXT_PUBLIC_EMAIL_USER,
-        pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     // ✅ EMAIL TO CUSTOMER
     await transporter.sendMail({
-      from: `"AirLinkRide" <${process.env.NEXT_PUBLIC_EMAIL_USER}>`,
+      from: `"AirLinkRide" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Your AirLinkRide Booking Confirmation",
       html: `
@@ -67,8 +66,8 @@ export async function POST(req) {
 
     // ✅ EMAIL TO YOU (ADMIN)
     await transporter.sendMail({
-      from: `"AirLinkRide Booking" <${process.env.NEXT_PUBLIC_EMAIL_USER}>`,
-      to: process.env.NEXT_PUBLIC_EMAIL_USER,
+      from: `"AirLinkRide Booking" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
       subject: "New Ride Booking",
       html: `
         <h2>New Booking</h2>
