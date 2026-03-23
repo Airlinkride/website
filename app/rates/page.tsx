@@ -184,6 +184,7 @@ export default function Rates() {
         { location: "St Catharines", sedan: 200, suv: 210 },
         { location: "Stoney Creek", sedan: 135, suv: 140 },
         { location: "Stouffville", sedan: 110, suv: 120 },
+        { location: "Stratford", sedan: 245, suv: 270 },
         { location: "Scarborough", sedan: 79, suv: 90 },
       ],
     },
