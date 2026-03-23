@@ -25,6 +25,7 @@ export default function Rates() {
         { location: "Belleville", sedan: 370, suv: 399 },
         { location: "Beaches Area", sedan: 84, suv: 105 },
         { location: "Bolton", sedan: 75, suv: 80 },
+        { location: "Bowmanville", sedan: 155, suv: 170 },
         { location: "Bracebridge", sedan: 330, suv: 370 },
         { location: "Bradford", sedan: 119, suv: 129 },
         { location: "Brampton", sedan: 79, suv: 85 },
@@ -50,7 +51,7 @@ export default function Rates() {
         { location: "Cobourg", sedan: 230, suv: 250 },
         { location: "Collingwood", sedan: 255, suv: 280 },
         { location: "Concord", sedan: 60, suv: 70 },
-        { location: "Courtice", sedan: 149, suv: 160 },
+        { location: "Courtice", sedan: 150, suv: 160 },
       ],
     },
 
