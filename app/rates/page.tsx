@@ -24,6 +24,7 @@ export default function Rates() {
         { location: "Barrie", sedan: 170, suv: 180 },
         { location: "Belleville", sedan: 370, suv: 399 },
         { location: "Beaches Area", sedan: 84, suv: 105 },
+        { location: "Beamsville", sedan: 170, suv: 185 },
         { location: "Bolton", sedan: 75, suv: 80 },
         { location: "Bowmanville", sedan: 155, suv: 170 },
         { location: "Bracebridge", sedan: 330, suv: 370 },
@@ -173,6 +174,9 @@ export default function Rates() {
         { location: "Port Colborne", sedan: 260, suv: 280 },
         { location: "Port Dover", sedan: 250, suv: 280 },
         { location: "Port Hope", sedan: 215, suv: 239 },
+      { location: "Port Perry", sedan: 175, suv: 190 },
+      { location: "Prince Edward County", sedan: 440, suv: 485 },
+
       ],
     },
 
@@ -228,6 +232,7 @@ export default function Rates() {
         { location: "Wasaga Beach", sedan: 230, suv: 255 },
         { location: "Waterdown", sedan: 110, suv: 120 },
         { location: "Waterloo", sedan: 180, suv: 190 },
+      { location: "Waterford", sedan: 210, suv: 230 },
         { location: "Whitby", sedan: 120, suv: 130 },
         { location: "Windsor", sedan: 670, suv: 730 },
         { location: "Woodbridge", sedan: 50, suv: 60 },
