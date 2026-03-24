@@ -13,6 +13,7 @@ export default function Rates() {
         { location: "Ajax", sedan: 100, suv: 110 },
         { location: "Alliston", sedan: 140, suv: 150 },
         { location: "Ancaster", sedan: 123, suv: 137 },
+        { location: "Angus", sedan: 180, suv: 200 },
         { location: "Ashburn", sedan: 130, suv: 150 },
         { location: "Aurora", sedan: 99, suv: 105 },
       ],
@@ -73,6 +74,7 @@ export default function Rates() {
         { location: "East York", sedan: 84, suv: 105 },
         { location: "Etobicoke", sedan: 50, suv: 60 },
         { location: "Fort Erie", sedan: 280, suv: 300 },
+        { location: "Elmira", sedan: 200, suv: 225 },
       ],
     },
 
@@ -98,10 +100,10 @@ export default function Rates() {
 
     {
       title: "Category I",
-      rates: [{ location: "Ingersoll", sedan: 259, suv: 280 }],
-      
-      
-      
+      rates: [
+        { location: "Ingersoll", sedan: 259, suv: 280 },
+        { location: "Innisfil", sedan: 160, suv: 180 },
+      ],
     },
 
     {
@@ -147,6 +149,7 @@ export default function Rates() {
       rates: [
         { location: "Napanee", sedan: 450, suv: 500 },
         { location: "Newmarket", sedan: 100, suv: 110 },
+        { location: "Newcastle", sedan: 180, suv: 200 },
         { location: "Niagara Falls ON", sedan: 229, suv: 250 },
         { location: "North York", sedan: 60, suv: 70 },
       ],
@@ -207,6 +210,7 @@ export default function Rates() {
       rates: [
         { location: "Thornhill", sedan: 70, suv: 80 },
         { location: "The Danforth Area", sedan: 84, suv: 104 },
+        { location: "Tillsonburg", sedan: 295, suv: 105 },
         { location: "Trenton", sedan: 340, suv: 370 },
       ],
     },
@@ -231,6 +235,7 @@ export default function Rates() {
       title: "Category W",
       rates: [
         { location: "Wasaga Beach", sedan: 230, suv: 255 },
+        { location: "Wainfleet", sedan: 225, suv: 250 },
         { location: "Waterdown", sedan: 110, suv: 120 },
         { location: "Waterloo", sedan: 180, suv: 190 },
       { location: "Waterford", sedan: 210, suv: 230 },
