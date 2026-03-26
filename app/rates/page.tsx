@@ -15,7 +15,7 @@ export default function Rates() {
         { location: "Ancaster", sedan: 123, suv: 137 },
         { location: "Angus", sedan: 180, suv: 200 },
         { location: "Ashburn", sedan: 130, suv: 150 },
-        { location: "Aurora", sedan: 99, suv: 105 },
+        { location: "Aurora", sedan: 100, suv: 105 },
       ],
     },
 
@@ -45,7 +45,7 @@ export default function Rates() {
       title: "Category C",
       rates: [
         { location: "Caledon", sedan: 89, suv: 99 },
-        { location: "Cambridge", sedan: 150, suv: 169 },
+        { location: "Cambridge", sedan: 150, suv: 170 },
         { location: "Campbellville", sedan: 95, suv: 100 },
         { location: "Campbellford", sedan: 310, suv: 340 },
         { location: "Chatham-Kent", sedan: 535, suv: 555 },
