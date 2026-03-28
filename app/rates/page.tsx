@@ -191,7 +191,7 @@ export default function Rates() {
       title: "Category R",
       rates: [
         { location: "Richmond Hill", sedan: 79, suv: 99 },
-        { location: "Rockport", sedan: 545, suv: 565 },
+        { location: "Rockport", sedan: 545, suv: 585 },
         { location: "Rosedale", sedan: 70, suv: 90 },
       ],
     },
