@@ -11,7 +11,7 @@ export default function Rates() {
         { location: "Acton", sedan: 106, suv: 117 },
         { location: "Airport Hotel Area", sedan: 60, suv: 85 },
         { location: "Ajax", sedan: 100, suv: 120 },
-        { location: "Alliston", sedan: 140, suv: 150 },
+        { location: "Alliston", sedan: 140, suv: 160 },
         { location: "Ancaster", sedan: 123, suv: 137 },
         { location: "Angus", sedan: 180, suv: 200 },
         { location: "Ashburn", sedan: 130, suv: 150 },
