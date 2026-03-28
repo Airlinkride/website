@@ -175,7 +175,8 @@ export default function Rates() {
       rates: [
         { location: "Parry Sound", sedan: 399, suv: 440 },
         { location: "Peterborough", sedan: 260, suv: 280 },
-        { location: "Pickering", sedan: 97, suv: 100 },
+        { location: "Pickering", sedan: 99, suv: 120 },
+        { location: "Pickering North", sedan: 115, suv: 130},
         { location: "Picton", sedan: 420, suv: 450 },
         { location: "Port Colborne", sedan: 260, suv: 280 },
         { location: "Port Dover", sedan: 250, suv: 280 },
