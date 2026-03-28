@@ -177,7 +177,7 @@ export default function Rates() {
         { location: "Peterborough", sedan: 260, suv: 280 },
         { location: "Pickering", sedan: 99, suv: 120 },
         { location: "Pickering North", sedan: 115, suv: 130},
-        { location: "Picton", sedan: 420, suv: 450 },
+        { location: "Picton", sedan: 430, suv: 450 },
         { location: "Port Colborne", sedan: 260, suv: 280 },
         { location: "Port Dover", sedan: 250, suv: 280 },
         { location: "Port Hope", sedan: 215, suv: 239 },
