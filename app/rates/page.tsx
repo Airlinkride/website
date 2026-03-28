@@ -115,7 +115,7 @@ export default function Rates() {
         { location: "Kilbride", sedan: 109, suv: 120 },
         { location: "King City", sedan: 80, suv: 99 },
         { location: "Kingston", sedan: 499, suv: 530 },
-        { location: "Kitchener", sedan: 170, suv: 180 },
+        { location: "Kitchener", sedan: 170, suv: 190 },
       { location: "Kawartha lakes", sedan: 270, suv: 290 },
 
       ],
@@ -126,7 +126,7 @@ export default function Rates() {
       rates: [
         { location: "Leaside Area", sedan: 81, suv: 100 },
         { location: "London", sedan: 340, suv: 360 },
-        { location: "Loyalist", sedan: 475, suv: 525 },
+        { location: "Loyalist", sedan: 520, suv: 540 },
         { location: "Linsday", sedan: 270, suv: 290 },
       ],
     },
