@@ -102,7 +102,7 @@ export default function Rates() {
     {
       title: "Category I",
       rates: [
-        { location: "Ingersoll", sedan: 259, suv: 280 },
+        { location: "Ingersoll", sedan: 259, suv: 280},
         { location: "Innisfil", sedan: 160, suv: 180 },
       ],
     },
@@ -114,7 +114,7 @@ export default function Rates() {
         { location: "Keswick", sedan: 149, suv: 169 },
         { location: "Kilbride", sedan: 109, suv: 120 },
         { location: "King City", sedan: 80, suv: 99 },
-        { location: "Kingston", sedan: 499, suv: 530 },
+        { location: "Kingston", sedan: 499, suv: 539 },
         { location: "Kitchener", sedan: 170, suv: 190 },
       { location: "Kawartha lakes", sedan: 270, suv: 290 },
 
