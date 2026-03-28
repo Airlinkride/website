@@ -134,7 +134,7 @@ export default function Rates() {
     {
       title: "Category M",
       rates: [
-        { location: "Maple", sedan: 69, suv: 75 },
+        { location: "Maple", sedan: 70, suv: 90 },
         { location: "Markham", sedan: 80, suv: 90 },
         { location: "Milton", sedan: 80, suv: 90 },
         { location: "Mississauga", sedan: 50, suv: 60 },
