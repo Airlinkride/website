@@ -136,7 +136,7 @@ export default function Rates() {
       rates: [
         { location: "Maple", sedan: 70, suv: 90 },
         { location: "Markham", sedan: 80, suv: 100 },
-        { location: "Milton", sedan: 80, suv: 95 },
+        { location: "Milton", sedan: 80, suv: 100 },
         { location: "Mississauga", sedan: 60, suv: 80 },
         { location: "Moore Park", sedan: 79, suv: 99 },
         { location: "Midtown", sedan: 60, suv: 80 },
@@ -161,7 +161,7 @@ export default function Rates() {
       rates: [
         { location: "Oakville", sedan: 69, suv: 89 },
         { location: "Orangeville", sedan: 110, suv: 130 },
-        { location: "Orillia", sedan: 237, suv: 260 },
+        { location: "Orillia", sedan: 240, suv: 260 },
         { location: "Orono", sedan: 183, suv: 200 },
         { location: "Oshawa", sedan: 120, suv: 140 },
         { location: "North Oshawa", sedan: 135, suv: 155},
