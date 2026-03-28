@@ -72,7 +72,7 @@ export default function Rates() {
       title: "Category E",
       rates: [
         { location: "East York", sedan: 84, suv: 105 },
-        { location: "Etobicoke", sedan: 50, suv: 60 },
+        { location: "Etobicoke", sedan: 50, suv: 70 },
         { location: "Fort Erie", sedan: 280, suv: 300 },
         { location: "Elmira", sedan: 200, suv: 225 },
       ],
@@ -81,7 +81,7 @@ export default function Rates() {
     {
       title: "Category G",
       rates: [
-        { location: "Georgetown", sedan: 80, suv: 89 },
+        { location: "Georgetown", sedan: 80, suv: 99 },
         { location: "Goodwood", sedan: 123, suv: 137 },
         { location: "Gravenhurst", sedan: 300, suv: 330 },
         { location: "Grimsby", sedan: 145, suv: 160 },
