@@ -53,7 +53,7 @@ export default function Rates() {
         { location: "Clarington", sedan: 179, suv: 189 },
         { location: "Cobourg", sedan: 230, suv: 250 },
         { location: "Collingwood", sedan: 255, suv: 280 },
-        { location: "Concord", sedan: 60, suv: 70 },
+        { location: "Concord", sedan: 60, suv: 80 },
         { location: "Courtice", sedan: 150, suv: 170 },
       ],
     },
