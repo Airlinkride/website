@@ -192,7 +192,7 @@ export default function Rates() {
       rates: [
         { location: "Richmond Hill", sedan: 79, suv: 99 },
         { location: "Rockport", sedan: 545, suv: 565 },
-        { location: "Rosedale", sedan: 65, suv: 70 },
+        { location: "Rosedale", sedan: 70, suv: 90 },
       ],
     },
 
