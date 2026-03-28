@@ -152,7 +152,7 @@ export default function Rates() {
         { location: "Newmarket", sedan: 100, suv: 120 },
         { location: "Newcastle", sedan: 180, suv: 200 },
         { location: "Niagara Falls ON", sedan: 229, suv: 250 },
-        { location: "North York", sedan: 60, suv: 70 },
+        { location: "North York", sedan: 60, suv: 80 },
       ],
     },
 
