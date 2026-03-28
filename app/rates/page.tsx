@@ -48,7 +48,7 @@ export default function Rates() {
         { location: "Cambridge", sedan: 150, suv: 170 },
         { location: "Campbellville", sedan: 100, suv: 120 },
         { location: "Campbellford", sedan: 310, suv: 350 },
-        { location: "Chatham-Kent", sedan: 535, suv: 555 },
+        { location: "Chatham-Kent", sedan: 535, suv: 575 },
         { location: "Claremont", sedan: 110, suv: 130 },
         { location: "Clarington", sedan: 190, suv: 210 },
         { location: "Cobourg", sedan: 230, suv: 250 },
