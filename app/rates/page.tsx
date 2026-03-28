@@ -49,7 +49,7 @@ export default function Rates() {
         { location: "Campbellville", sedan: 95, suv: 115 },
         { location: "Campbellford", sedan: 310, suv: 340 },
         { location: "Chatham-Kent", sedan: 535, suv: 555 },
-        { location: "Claremont", sedan: 110, suv: 120 },
+        { location: "Claremont", sedan: 110, suv: 130 },
         { location: "Clarington", sedan: 179, suv: 189 },
         { location: "Cobourg", sedan: 230, suv: 250 },
         { location: "Collingwood", sedan: 255, suv: 280 },
