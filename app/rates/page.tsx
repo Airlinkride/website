@@ -44,7 +44,7 @@ export default function Rates() {
     {
       title: "Category C",
       rates: [
-        { location: "Caledon", sedan: 89, suv: 99 },
+        { location: "Caledon", sedan: 99, suv: 119 },
         { location: "Cambridge", sedan: 150, suv: 170 },
         { location: "Campbellville", sedan: 95, suv: 100 },
         { location: "Campbellford", sedan: 310, suv: 340 },
