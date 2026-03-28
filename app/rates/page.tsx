@@ -221,8 +221,8 @@ export default function Rates() {
     {
       title: "Category U",
       rates: [
-        { location: "Unionville", sedan: 80, suv: 89 },
-        { location: "Uxbridge", sedan: 142, suv: 155 },
+        { location: "Unionville", sedan: 80, suv: 99 },
+        { location: "Uxbridge", sedan: 140, suv: 160 },
       ],
     },
 
