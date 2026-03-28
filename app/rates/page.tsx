@@ -166,7 +166,7 @@ export default function Rates() {
         { location: "Oshawa", sedan: 120, suv: 140 },
         { location: "North Oshawa", sedan: 135, suv: 155},
         { location: "Ottawa", sedan: 850, suv: 900 },
-        { location: "Owen Sound", sedan: 329, suv: 360 },
+        { location: "Owen Sound", sedan: 340, suv: 360 },
       ],
     },
 
