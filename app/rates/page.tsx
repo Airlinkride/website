@@ -8,11 +8,11 @@ export default function Rates() {
     {
       title: "Category A",
       rates: [
-        { location: "Acton", sedan: 106, suv: 117 },
+        { location: "Acton", sedan: 110, suv: 130 },
         { location: "Airport Hotel Area", sedan: 60, suv: 85 },
         { location: "Ajax", sedan: 100, suv: 120 },
         { location: "Alliston", sedan: 140, suv: 160 },
-        { location: "Ancaster", sedan: 123, suv: 137 },
+        { location: "Ancaster", sedan: 125, suv: 145 },
         { location: "Angus", sedan: 180, suv: 200 },
         { location: "Ashburn", sedan: 130, suv: 150 },
         { location: "Aurora", sedan: 110, suv: 130 },
@@ -22,11 +22,11 @@ export default function Rates() {
     {
       title: "Category B",
       rates: [
-        { location: "Barrie", sedan: 170, suv: 180 },
+        { location: "Barrie", sedan: 170, suv: 190 },
         { location: "Belleville", sedan: 370, suv: 399 },
-        { location: "Beaches Area", sedan: 84, suv: 105 },
-        { location: "Beamsville", sedan: 170, suv: 185 },
-        { location: "Bolton", sedan: 75, suv: 80 },
+        { location: "Beaches Area", sedan: 90, suv: 110 },
+        { location: "Beamsville", sedan: 175, suv: 190 },
+        { location: "Bolton", sedan: 80, suv: 100 },
         { location: "Bowmanville", sedan: 155, suv: 170 },
         { location: "Bracebridge", sedan: 330, suv: 370 },
         { location: "Bradford", sedan: 119, suv: 134 },
