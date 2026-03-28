@@ -33,11 +33,11 @@ export default function Rates() {
         { location: "Brampton", sedan: 80, suv: 100 },
         { location: "Brantford", sedan: 180, suv: 200 },
         { location: "Brighton", sedan: 330, suv: 350 },
-        { location: "Brockville", sedan: 650, suv: 700 },
+        { location: "Brockville", sedan: 680, suv: 700 },
         { location: "Brooklin", sedan: 130, suv: 150},
         { location: "Buffalo Airport", sedan: 340, suv: 360 },
-        { location: "Burlington", sedan: 99, suv: 120 },
-        { location: "Buttonville", sedan: 79, suv: 99 },
+        { location: "Burlington", sedan: 90, suv: 110 },
+        { location: "Buttonville", sedan: 80, suv: 100 },
       ],
     },
 
@@ -46,11 +46,11 @@ export default function Rates() {
       rates: [
         { location: "Caledon", sedan: 99, suv: 119 },
         { location: "Cambridge", sedan: 150, suv: 170 },
-        { location: "Campbellville", sedan: 95, suv: 115 },
+        { location: "Campbellville", sedan: 100, suv: 120 },
         { location: "Campbellford", sedan: 310, suv: 340 },
         { location: "Chatham-Kent", sedan: 535, suv: 555 },
         { location: "Claremont", sedan: 110, suv: 130 },
-        { location: "Clarington", sedan: 179, suv: 189 },
+        { location: "Clarington", sedan: 190, suv: 210 },
         { location: "Cobourg", sedan: 230, suv: 250 },
         { location: "Collingwood", sedan: 255, suv: 280 },
         { location: "Concord", sedan: 60, suv: 80 },
@@ -71,7 +71,7 @@ export default function Rates() {
     {
       title: "Category E",
       rates: [
-        { location: "East York", sedan: 84, suv: 105 },
+        { location: "East York", sedan: 85, suv: 105 },
         { location: "Etobicoke", sedan: 50, suv: 70 },
         { location: "Fort Erie", sedan: 280, suv: 300 },
         { location: "Elmira", sedan: 200, suv: 225 },
@@ -95,7 +95,7 @@ export default function Rates() {
         { location: "Hamilton", sedan: 130, suv: 145},
         { location: "Hamilton MTN", sedan: 150, suv: 165},
         { location: "Hayden", sedan: 197, suv: 219 },
-        { location: "Huntsville", sedan: 399, suv: 445 },
+        { location: "Huntsville", sedan: 425, suv: 445 },
       ],
     },
 
