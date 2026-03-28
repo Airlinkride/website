@@ -139,7 +139,7 @@ export default function Rates() {
         { location: "Milton", sedan: 80, suv: 95 },
         { location: "Mississauga", sedan: 60, suv: 80 },
         { location: "Moore Park", sedan: 79, suv: 99 },
-        { location: "Midtown", sedan: 60, suv: 70 },
+        { location: "Midtown", sedan: 60, suv: 80 },
         { location: "Midland", sedan: 260, suv: 280 },
         { location: "Montreal", sedan: 1000, suv: 1150 },
       ],
@@ -149,7 +149,7 @@ export default function Rates() {
       title: "Category N",
       rates: [
         { location: "Napanee", sedan: 450, suv: 500 },
-        { location: "Newmarket", sedan: 100, suv: 110 },
+        { location: "Newmarket", sedan: 100, suv: 120 },
         { location: "Newcastle", sedan: 180, suv: 200 },
         { location: "Niagara Falls ON", sedan: 229, suv: 250 },
         { location: "North York", sedan: 60, suv: 70 },
