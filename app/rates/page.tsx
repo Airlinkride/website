@@ -263,6 +263,7 @@ export default function Rates() {
           <h1 className="text-5xl font-bold mb-4">Airport Ride Rates</h1>
           <p className="text-gray-300">
             Flat rate pricing from Toronto Pearson Airport
+            A $17 pre-arrangement fee applies to all Pearson Airport arrivals
           </p>
 
           <Link href="/booking?custom=true">
