@@ -244,7 +244,7 @@ export default function Rates() {
       { location: "Waterford", sedan: 210, suv: 230 },
         { location: "Whitby", sedan: 120, suv: 140 },
         { location: "Whitby North", sedan: 130, suv: 150},
-        { location: "Windsor", sedan: 670, suv: 730 },
+        { location: "Windsor", sedan: 670, suv: 720 },
         { location: "Woodbridge", sedan: 60, suv: 80 },
         { location: "Woodstock", sedan: 230, suv: 250 },
         { location: "Woodbine Garden", sedan: 82, suv: 99 },
