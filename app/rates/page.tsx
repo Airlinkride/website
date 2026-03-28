@@ -36,7 +36,7 @@ export default function Rates() {
         { location: "Brockville", sedan: 650, suv: 710 },
         { location: "Brooklin", sedan: 130, suv: 150},
         { location: "Buffalo Airport", sedan: 340, suv: 350 },
-        { location: "Burlington", sedan: 99, suv: 109 },
+        { location: "Burlington", sedan: 99, suv: 120 },
         { location: "Buttonville", sedan: 79, suv: 89 },
       ],
     },
