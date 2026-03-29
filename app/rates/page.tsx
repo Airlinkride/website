@@ -205,7 +205,8 @@ export default function Rates() {
         { location: "Stouffville", sedan: 110, suv: 130 },
         { location: "Stratford", sedan: 245, suv: 265 },
         { location: "Scarborough", sedan: 80, suv: 100 },
-      ],
+        { location: "Simcoe", sedan: 300, suv: 340 },
+        { location: "Stratford", sedan: 245, suv: 265 },
     },
 
     {
