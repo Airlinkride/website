@@ -94,7 +94,7 @@ export default function Rates() {
     {
       title: "Category H",
       rates: [
-        { location: "Hamilton", sedan: 130, suv: 145},
+        { location: "Hamilton", sedan: 130, suv: 140},
         { location: "Hamilton MTN", sedan: 150, suv: 165},
         { location: "Hayden", sedan: 197, suv: 219 },
         { location: "Huntsville", sedan: 425, suv: 465 },
