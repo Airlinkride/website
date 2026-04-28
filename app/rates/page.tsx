@@ -113,7 +113,7 @@ export default function Rates() {
       title: "Category K",
       
         rates: [
-        { location: "Keswick", sedan: 160, suv: 190 },
+        { location: "Keswick", sedan: 160, suv: 170 },
         { location: "Kilbride", sedan: 109, suv: 120 },
         { location: "King City", sedan: 80, suv: 99 },
         { location: "Kingston", sedan: 499, suv: 539 },
