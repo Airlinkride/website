@@ -242,7 +242,7 @@ export default function Rates() {
       rates: [
         { location: "Wasaga Beach", sedan: 230, suv: 250 },
         { location: "Wainfleet", sedan: 220, suv: 240},
-        { location: "Waterdown", sedan: 110, suv: 130 },
+        { location: "Waterdown", sedan: 110, suv: 125 },
         { location: "Waterloo", sedan: 170, suv: 190 },
         { location: "Waterford", sedan: 210, suv: 230 },
         { location: "Whitby", sedan: 120, suv: 140 },
