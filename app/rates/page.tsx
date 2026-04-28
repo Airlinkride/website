@@ -127,7 +127,7 @@ export default function Rates() {
       title: "Category L",
       rates: [
         { location: "Leaside Area", sedan: 81, suv: 100 },
-        { location: "London", sedan: 340, suv: 380 },
+        { location: "London", sedan: 340, suv: 350 },
         { location: "Loyalist", sedan: 520, suv: 560 },
         { location: "Linsday", sedan: 270, suv: 300 },
       ],
