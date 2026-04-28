@@ -202,7 +202,7 @@ export default function Rates() {
       title: "Category S",
       rates: [
         { location: "Schomberg", sedan: 90, suv: 100 },
-        { location: "St Catharines", sedan: 200, suv: 210 },
+        { location: "St Catharines", sedan: 190, suv: 210 },
         { location: "Stoney Creek", sedan: 135, suv: 155 },
         { location: "Stouffville", sedan: 110, suv: 130 },
         { location: "Stratford", sedan: 245, suv: 265 },
