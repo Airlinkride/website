@@ -217,7 +217,7 @@ export default function Rates() {
         { location: "Thornhill", sedan: 70, suv: 80 },
         { location: "The Danforth Area", sedan: 84, suv: 104 },
         { location: "Tillsonburg", sedan: 280, suv: 300 },
-        { location: "Trenton", sedan: 350, suv: 380 },
+        { location: "Trenton", sedan: 340, suv: 370 },
       ],
     },
 
