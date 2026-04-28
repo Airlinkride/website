@@ -204,7 +204,7 @@ export default function Rates() {
         { location: "Schomberg", sedan: 90, suv: 100 },
         { location: "St Catharines", sedan: 190, suv: 210 },
         { location: "Stoney Creek", sedan: 130, suv: 140 },
-        { location: "Stouffville", sedan: 110, suv: 130 },
+        { location: "Stouffville", sedan: 110, suv: 120 },
         { location: "Stratford", sedan: 245, suv: 265 },
         { location: "Scarborough", sedan: 80, suv: 90 },
         { location: "Simcoe", sedan: 290, suv: 320 },
@@ -233,7 +233,7 @@ export default function Rates() {
       title: "Category V",
       rates: [
         { location: "Vaughan", sedan: 60, suv: 70 },
-        { location: "Victoria", sedan: 80, suv: 100 },
+        { location: "Victoria", sedan: 80, suv: 90 },
       ],
     },
 
