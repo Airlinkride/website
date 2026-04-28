@@ -31,7 +31,7 @@ export default function Rates() {
         { location: "Bracebridge", sedan: 330, suv: 370 },
         { location: "Bradford", sedan: 120, suv: 140 },
         { location: "Brampton", sedan: 80, suv: 100 },
-        { location: "Brantford", sedan: 180, suv: 200 },
+        { location: "Brantford", sedan: 180, suv: 190 },
         { location: "Brighton", sedan: 330, suv: 350 },
         { location: "Brockville", sedan: 680, suv: 720 },
         { location: "Brooklin", sedan: 130, suv: 150},
