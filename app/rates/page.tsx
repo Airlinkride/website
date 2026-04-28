@@ -75,7 +75,7 @@ export default function Rates() {
         { location: "Etobicoke", sedan: 50, suv: 70 },
         { location: "Fort Erie", sedan: 280, suv: 300 },
         { location: "Ennismore", sedan: 310, suv: 330 },
-        { location: "Elmira", sedan: 200, suv: 225 },
+        { location: "Elmira", sedan: 200, suv: 220 },
       ],
     },
 
