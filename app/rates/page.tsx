@@ -131,6 +131,7 @@ export default function Rates() {
         { location: "London", sedan: 340, suv: 350 },
         { location: "Loyalist", sedan: 520, suv: 560 },
         { location: "Linsday", sedan: 270, suv: 300 },
+        { location: "Lincoln", sedan: 160, suv: 180 },
       ],
     },
 
