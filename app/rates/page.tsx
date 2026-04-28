@@ -232,7 +232,7 @@ export default function Rates() {
     {
       title: "Category V",
       rates: [
-        { location: "Vaughan", sedan: 70, suv: 90 },
+        { location: "Vaughan", sedan: 60, suv: 70 },
         { location: "Victoria", sedan: 80, suv: 100 },
       ],
     },
