@@ -209,6 +209,7 @@ export default function Rates() {
         { location: "Stratford", sedan: 245, suv: 265 },
         { location: "Scarborough", sedan: 80, suv: 90 },
         { location: "Simcoe", sedan: 290, suv: 320 },
+        { location: "Sarnia", sedan: 510, suv: 530 },
       ]   
     },
 
