@@ -241,7 +241,7 @@ export default function Rates() {
       title: "Category W",
       rates: [
         { location: "Wasaga Beach", sedan: 230, suv: 250 },
-        { location: "Wainfleet", sedan: 240, suv: 270 },
+        { location: "Wainfleet", sedan: 220, suv: 240},
         { location: "Waterdown", sedan: 110, suv: 130 },
         { location: "Waterloo", sedan: 170, suv: 190 },
         { location: "Waterford", sedan: 210, suv: 230 },
