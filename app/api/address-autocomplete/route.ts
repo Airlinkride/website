@@ -9,12 +9,12 @@ export async function GET(req: Request) {
       return Response.json({ results: [] });
     }
 
-    const apiKey = process.env.AWS_LOCATION_API_KEY;
-    const region = process.env.AWS_REGION || "ca-central-1";
+    const apiKey = process.env.LOCATION_API_KEY;
+    const region = process.env.LOCATION_REGION || "ca-central-1";
 
     if (!apiKey) {
       return Response.json(
-        { error: "AWS_LOCATION_API_KEY is missing" },
+        { error: "LOCATION_API_KEY is missing" },
         { status: 500 }
       );
     }
