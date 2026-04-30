@@ -7,7 +7,6 @@ import { useSearchParams } from "next/navigation";
 
 export default function Booking() {
   const searchParams = useSearchParams();
-
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
@@ -31,8 +30,8 @@ export default function Booking() {
   const [showPickupSuggestions, setShowPickupSuggestions] = useState(false);
   const [showDropSuggestions, setShowDropSuggestions] = useState(false);
 
-  const [prevPickupValue, setPrevPickupValue] = useState("");
-  const [prevDropValue, setPrevDropValue] = useState("");
+  const [selectedPickup, setSelectedPickup] = useState(false);
+  const [selectedDrop, setSelectedDrop] = useState(false);
 
   useEffect(() => {
     const pickup = searchParams.get("pickup");
@@ -45,30 +44,12 @@ export default function Booking() {
         pickup: pickup || "",
         drop: drop || "",
       }));
-      setPrevPickupValue(pickup || "");
-      setPrevDropValue(drop || "");
     }
 
     if (custom === "true") {
       setCustomTrip(true);
     }
   }, [searchParams]);
-
-  function shouldFetchSuggestions(value: string, previousValue: string) {
-    const trimmed = value.trim();
-    const prevTrimmed = previousValue.trim();
-
-    if (trimmed.length < 4) return false;
-
-    const justTypedSpace =
-      value.endsWith(" ") && !previousValue.endsWith(" ");
-
-    if (justTypedSpace) return true;
-
-    if (prevTrimmed.length < 4 && trimmed.length >= 4) return true;
-
-    return false;
-  }
 
   async function fetchSuggestions(value: string, type: "pickup" | "drop") {
     const query = value.trim();
@@ -102,7 +83,7 @@ export default function Booking() {
         setDropSuggestions(data.results || []);
         setShowDropSuggestions((data.results || []).length > 0);
       }
-    } catch (error) {
+    } catch {
       if (type === "pickup") {
         setPickupSuggestions([]);
         setShowPickupSuggestions(false);
@@ -113,18 +94,51 @@ export default function Booking() {
     }
   }
 
+  useEffect(() => {
+    if (selectedPickup) return;
+
+    const query = form.pickup.trim();
+
+    if (query.length < 4) {
+      setPickupSuggestions([]);
+      setShowPickupSuggestions(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      fetchSuggestions(query, "pickup");
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [form.pickup, selectedPickup]);
+
+  useEffect(() => {
+    if (selectedDrop) return;
+
+    const query = form.drop.trim();
+
+    if (query.length < 4) {
+      setDropSuggestions([]);
+      setShowDropSuggestions(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      fetchSuggestions(query, "drop");
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [form.drop, selectedDrop]);
+
   async function submit(e: any) {
     e.preventDefault();
 
     if (loading) return;
-
     setLoading(true);
 
     const bookingData = { ...form };
 
-    toast.success(
-      "Booking received! A confirmation email will arrive shortly."
-    );
+    toast.success("Booking received! A confirmation email will arrive shortly.");
 
     setForm({
       name: "",
@@ -140,8 +154,8 @@ export default function Booking() {
       vehicle: "",
     });
 
-    setPrevPickupValue("");
-    setPrevDropValue("");
+    setSelectedPickup(false);
+    setSelectedDrop(false);
     setPickupSuggestions([]);
     setDropSuggestions([]);
     setShowPickupSuggestions(false);
@@ -164,22 +178,7 @@ export default function Booking() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <Toaster
-        position="top-center"
-        gutter={10}
-        containerStyle={{ top: 20 }}
-        toastOptions={{
-          duration: 4500,
-          style: {
-            background: "#84cc16",
-            color: "#000",
-            fontWeight: "600",
-            padding: "14px 20px",
-            borderRadius: "8px",
-            fontSize: "15px",
-          },
-        }}
-      />
+      <Toaster position="top-center" />
 
       <section
         className="h-[40vh] flex items-center justify-center text-center bg-cover bg-center"
@@ -189,7 +188,6 @@ export default function Booking() {
           <h1 className="text-5xl font-bold">
             {customTrip ? "Request Custom Trip Quote" : "Book Your Ride"}
           </h1>
-
           <p className="text-gray-300 mt-2">
             Fast and reliable airport transportation
           </p>
@@ -207,12 +205,6 @@ export default function Booking() {
             Ride Details
           </h2>
 
-          {customTrip && (
-            <div className="bg-lime-400 text-black p-3 rounded mb-6 text-center font-semibold">
-              Request a custom quote for your trip
-            </div>
-          )}
-
           <form onSubmit={submit} className="grid gap-5">
             <input
               className="w-full p-3 rounded text-black"
@@ -227,7 +219,6 @@ export default function Booking() {
               className="w-full p-3 rounded text-black"
               placeholder="Phone Number"
               required
-              pattern="[0-9]{10,15}"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
@@ -238,7 +229,6 @@ export default function Booking() {
               placeholder="Email Address"
               required
               value={form.email}
-              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
 
@@ -249,18 +239,8 @@ export default function Booking() {
                 required
                 value={form.pickup}
                 onChange={(e) => {
-                  const value = e.target.value;
-
-                  setForm((prev) => ({ ...prev, pickup: value }));
-
-                  if (value.trim().length < 4) {
-                    setPickupSuggestions([]);
-                    setShowPickupSuggestions(false);
-                  } else if (shouldFetchSuggestions(value, prevPickupValue)) {
-                    fetchSuggestions(value, "pickup");
-                  }
-
-                  setPrevPickupValue(value);
+                  setSelectedPickup(false);
+                  setForm((prev) => ({ ...prev, pickup: e.target.value }));
                 }}
                 onFocus={() => {
                   if (pickupSuggestions.length > 0) {
@@ -279,9 +259,13 @@ export default function Booking() {
                       key={item.placeId || index}
                       type="button"
                       className="block w-full text-left px-4 py-3 hover:bg-gray-100 border-b last:border-b-0"
-                      onClick={() => {
-                        setForm((prev) => ({ ...prev, pickup: item.label }));
-                        setPrevPickupValue(item.label);
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        setSelectedPickup(true);
+                        setForm((prev) => ({
+                          ...prev,
+                          pickup: item.label,
+                        }));
                         setPickupSuggestions([]);
                         setShowPickupSuggestions(false);
                       }}
@@ -300,18 +284,8 @@ export default function Booking() {
                 required
                 value={form.drop}
                 onChange={(e) => {
-                  const value = e.target.value;
-
-                  setForm((prev) => ({ ...prev, drop: value }));
-
-                  if (value.trim().length < 4) {
-                    setDropSuggestions([]);
-                    setShowDropSuggestions(false);
-                  } else if (shouldFetchSuggestions(value, prevDropValue)) {
-                    fetchSuggestions(value, "drop");
-                  }
-
-                  setPrevDropValue(value);
+                  setSelectedDrop(false);
+                  setForm((prev) => ({ ...prev, drop: e.target.value }));
                 }}
                 onFocus={() => {
                   if (dropSuggestions.length > 0) {
@@ -330,9 +304,13 @@ export default function Booking() {
                       key={item.placeId || index}
                       type="button"
                       className="block w-full text-left px-4 py-3 hover:bg-gray-100 border-b last:border-b-0"
-                      onClick={() => {
-                        setForm((prev) => ({ ...prev, drop: item.label }));
-                        setPrevDropValue(item.label);
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        setSelectedDrop(true);
+                        setForm((prev) => ({
+                          ...prev,
+                          drop: item.label,
+                        }));
                         setDropSuggestions([]);
                         setShowDropSuggestions(false);
                       }}
@@ -349,7 +327,6 @@ export default function Booking() {
                 <label className="text-sm text-gray-300 block mb-1">
                   Pickup Date
                 </label>
-
                 <input
                   type="date"
                   className="p-3 rounded text-black w-full"
@@ -364,7 +341,6 @@ export default function Booking() {
                 <label className="text-sm text-gray-300 block mb-1">
                   Pickup Time
                 </label>
-
                 <input
                   type="time"
                   className="p-3 rounded text-black w-full"
