@@ -28,7 +28,7 @@ export default function Rates() {
         { location: "Beamsville", sedan: 160, suv: 180 },
         { location: "Blue Mountain", sedan: 280, suv: 300 },
         { location: "Bolton", sedan: 80, suv: 100 },
-        { location: "Bowmanville", sedan: 155, suv: 175 },
+        { location: "Bowmanville", sedan: 155, suv: 170 },
         { location: "Bracebridge", sedan: 330, suv: 370 },
         { location: "Bradford", sedan: 120, suv: 130 },
         { location: "Brampton", sedan: 80, suv: 100 },
