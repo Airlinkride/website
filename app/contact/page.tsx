@@ -134,7 +134,7 @@ export default function Contact() {
 
         <div className="rounded-xl overflow-hidden shadow-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.32001732389!2d-79.61606842464477!3d43.683109950497105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12009d7e29d56021%3A0x618a3696f25b1356!2sPearson%20Airport%20Terminal%201%20Parking%2C%20Mississauga%2C%20ON!5e0!3m2!1sen!2sca!4v1773596952926!5m2!1sen!2sca"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.090450222081!2d-79.39328332434323!3d43.646286452878776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d0bda40dd3%3A0x53a463d7788920fd!2s319%20King%20St%20W%2C%20Toronto%2C%20ON%20M5V%201J5!5e0!3m2!1sen!2sca!4v1777515377531!5m2!1sen!2sca"
             width="100%"
             height="450"
             style={{ border: 0 }}
