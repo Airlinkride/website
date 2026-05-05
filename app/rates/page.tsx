@@ -8,7 +8,7 @@ export default function Rates() {
     {
       title: "Category A",
       rates: [
-        { location: "Acton", sedan: 110, suv: 130 },
+        { location: "Acton", sedan: 110, suv: 120 },
         { location: "Airport Hotel Area", sedan: 60, suv: 85 },
         { location: "Ajax", sedan: 100, suv: 110 },
         { location: "Alliston", sedan: 140, suv: 160 },
