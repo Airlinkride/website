@@ -64,7 +64,7 @@ export default function Rates() {
       rates: [
         { location: "Davisville", sedan: 60, suv: 70 },
         { location: "Detroit", sedan: 700, suv: 750 },
-        { location: "Downtown Toronto", sedan: 80, suv: 99 },
+        { location: "Downtown Toronto", sedan: 70, suv: 80 },
         { location: "Dundas", sedan: 120, suv: 130 },
       ],
     },
