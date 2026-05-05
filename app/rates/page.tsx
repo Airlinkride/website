@@ -22,7 +22,7 @@ export default function Rates() {
     {
       title: "Category B",
       rates: [
-        { location: "Barrie", sedan: 170, suv: 185 },
+        { location: "Barrie", sedan: 170, suv: 180 },
         { location: "Belleville", sedan: 360, suv: 400 },
         { location: "Beaches Area", sedan: 90, suv: 110 },
         { location: "Beamsville", sedan: 175, suv: 190 },
