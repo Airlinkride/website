@@ -72,7 +72,7 @@ export default function Rates() {
     {
       title: "Category E",
       rates: [
-        { location: "East York", sedan: 85, suv: 105 },
+        { location: "East York", sedan: 80, suv: 90 },
         { location: "Etobicoke", sedan: 50, suv: 70 },
         { location: "Fort Erie", sedan: 280, suv: 300 },
         { location: "Ennismore", sedan: 310, suv: 330 },
