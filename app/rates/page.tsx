@@ -30,7 +30,7 @@ export default function Rates() {
         { location: "Bolton", sedan: 80, suv: 100 },
         { location: "Bowmanville", sedan: 155, suv: 170 },
         { location: "Bracebridge", sedan: 330, suv: 370 },
-        { location: "Bradford", sedan: 120, suv: 130 },
+        { location: "Bradford", sedan: 115, suv: 120 },
         { location: "Brampton", sedan: 80, suv: 100 },
         { location: "Brantford", sedan: 180, suv: 190 },
         { location: "Brighton", sedan: 330, suv: 350 },
