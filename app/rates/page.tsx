@@ -83,7 +83,7 @@ export default function Rates() {
     {
       title: "Category G",
       rates: [
-        { location: "Georgetown", sedan: 80, suv: 99 },
+        { location: "Georgetown", sedan: 80, suv: 90 },
         { location: "Georgina", sedan: 200, suv: 220 },
         { location: "Goodwood", sedan: 123, suv: 137 },
         { location: "Gravenhurst", sedan: 300, suv: 340 },
