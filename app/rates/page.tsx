@@ -142,7 +142,7 @@ export default function Rates() {
         { location: "Markham", sedan: 80, suv: 90 },
         { location: "Milton", sedan: 80, suv: 90 },
         { location: "Mississauga", sedan: 60, suv: 80 },
-        { location: "Moore Park", sedan: 79, suv: 99 },
+        { location: "Moore Park", sedan: 70, suv: 80 },
         { location: "Midtown", sedan: 60, suv: 80 },
         { location: "Midland", sedan: 260, suv: 300 },
         { location: "Montreal", sedan: 1000, suv: 1100 },
