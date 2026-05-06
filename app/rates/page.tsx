@@ -106,7 +106,7 @@ export default function Rates() {
       title: "Category I",
       rates: [
         { location: "Ingersoll", sedan: 259, suv: 280},
-        { location: "Innisfil", sedan: 160, suv: 180 },
+        { location: "Innisfil", sedan: 155, suv: 175 },
       ],
     },
 
