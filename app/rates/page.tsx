@@ -205,7 +205,7 @@ export default function Rates() {
       rates: [
         { location: "Schomberg", sedan: 90, suv: 100 },
         { location: "St Catharines", sedan: 190, suv: 210 },
-        { location: "Stoney Creek", sedan: 130, suv: 140 },
+        { location: "Stoney Creek", sedan: 125, suv: 135 },
         { location: "Stouffville", sedan: 110, suv: 120 },
         { location: "Stratford", sedan: 245, suv: 265 },
         { location: "Scarborough", sedan: 80, suv: 90 },
