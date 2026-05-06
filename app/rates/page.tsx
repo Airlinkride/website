@@ -88,7 +88,7 @@ export default function Rates() {
         { location: "Goodwood", sedan: 120, suv: 135 },
         { location: "Gravenhurst", sedan: 300, suv: 330 },
         { location: "Grimsby", sedan: 140, suv: 160 },
-        { location: "Guelph", sedan: 139, suv: 159 },
+        { location: "Guelph", sedan: 135, suv: 150 },
       ],
     },
 
