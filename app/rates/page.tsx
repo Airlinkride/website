@@ -192,6 +192,13 @@ export default function Rates() {
     },
 
     {
+      title: "Category Q",
+      rates: [
+        { location: "Quinte West", sedan: 340, suv: 370 },
+      ],
+    },
+
+    {
       title: "Category R",
       rates: [
         { location: "Richmond Hill", sedan: 80, suv: 85 },
