@@ -184,7 +184,7 @@ export default function Rates() {
         { location: "Picton", sedan: 430, suv: 470 },
         { location: "Port Colborne", sedan: 260, suv: 280 },
         { location: "Port Dover", sedan: 255, suv: 280 },
-        { location: "Port Hope", sedan: 219, suv: 239 },
+        { location: "Port Hope", sedan: 215, suv: 235 },
       { location: "Port Perry", sedan: 170, suv: 190 },
       { location: "Prince Edward County", sedan: 440, suv: 485 },
 
