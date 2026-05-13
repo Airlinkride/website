@@ -98,7 +98,7 @@ export default function Rates() {
         { location: "Hamilton", sedan: 130, suv: 140},
         { location: "Hamilton MTN", sedan: 145, suv: 160},
         { location: "Hayden", sedan: 197, suv: 219 },
-        { location: "Huntsville", sedan: 425, suv: 465 },
+        { location: "Huntsville", sedan: 410, suv: 440 },
       ],
     },
 
