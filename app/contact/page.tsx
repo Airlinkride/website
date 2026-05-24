@@ -1,11 +1,58 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Car } from "lucide-react";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if (loading) return;
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast.success("Message sent successfully!");
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch {
+      toast.error("Unable to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <main className="min-h-screen bg-black text-white overflow-hidden">
+      <Toaster position="top-center" />
+
       {/* HERO */}
       <section
         className="h-[40vh] flex items-center justify-center text-center bg-cover bg-center"
@@ -39,33 +86,52 @@ export default function Contact() {
               Send Us a Message
             </h2>
 
-            <form className="grid gap-4">
+            <form onSubmit={submit} className="grid gap-4">
               <input
                 type="text"
                 placeholder="Your Name"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="p-4 rounded-xl text-black outline-none focus:ring-2 focus:ring-lime-400"
               />
 
               <input
                 type="email"
                 placeholder="Email Address"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="p-4 rounded-xl text-black outline-none focus:ring-2 focus:ring-lime-400"
               />
 
               <input
                 type="text"
                 placeholder="Phone Number"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 className="p-4 rounded-xl text-black outline-none focus:ring-2 focus:ring-lime-400"
               />
 
               <textarea
                 placeholder="Your Message"
                 rows={4}
+                required
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className="p-4 rounded-xl text-black outline-none focus:ring-2 focus:ring-lime-400"
               />
 
-              <button className="bg-lime-400 text-black py-4 rounded-xl font-bold hover:bg-lime-300 transition shadow-lg shadow-lime-400/20">
-                Send Message
+              <button
+                type="submit"
+                disabled={loading}
+                className={`text-black py-4 rounded-xl font-bold transition shadow-lg shadow-lime-400/20 ${
+                  loading
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-lime-400 hover:bg-lime-300"
+                }`}
+              >
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </motion.div>
