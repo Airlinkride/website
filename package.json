@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^5.1.2",
+    "@next/third-parties": "^16.2.6",
     "autoprefixer": "^10.4.0",
     "framer-motion": "^12.35.2",
     "googleapis": "^171.4.0",
