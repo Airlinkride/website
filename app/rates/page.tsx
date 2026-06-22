@@ -117,10 +117,9 @@ export default function Rates() {
         { location: "Keswick", sedan: 160, suv: 170 },
         { location: "Kilbride", sedan: 105, suv: 115 },
         { location: "King City", sedan: 80, suv: 90 },
-        { location: "Kingston", sedan: 440, suv: 470 },
+        { location: "Kingston", sedan: 520, suv: 570 },
         { location: "Kitchener", sedan: 170, suv: 180 },
       { location: "Kawartha lakes", sedan: 270, suv: 290 },
-
       ],
     },
 
