@@ -41,7 +41,7 @@ const serviceAreas = [
   ...locations.map((location) => location.name),
 ];
 
-const uniqueServiceAreas = [...new Set(serviceAreas)];
+const uniqueServiceAreas = Array.from(new Set(serviceAreas));
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
