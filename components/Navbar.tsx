@@ -59,7 +59,7 @@ export default function Navbar() {
             Rates
           </Link>
 
-          <Link href="/vehicles">Vehicles</Link>
+          <Link href="/vehicles">Fleets</Link>
 
           <Link href="/contact" className="hover:text-lime-400 transition">
             Contact

@@ -71,12 +71,12 @@ export default function VehiclesPage() {
                   <p>{vehicle.luggage}</p>
                 </div>
 
-                <Link
+                {/* <Link
                   href={`/booking?vehicle=${encodeURIComponent(vehicle.name)}`}
                   className="mt-6 inline-flex rounded-lg bg-lime-400 px-5 py-3 font-semibold text-black transition hover:bg-lime-300"
                 >
                   Book This Vehicle
-                </Link>
+                </Link> */}
               </div>
             </article>
           ))}

@@ -471,7 +471,7 @@ export default function Booking() {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label className="mb-3 block text-sm text-gray-300">
                 Select Vehicle
               </label>
@@ -528,7 +528,7 @@ export default function Booking() {
                 and a comparable luxury SUV may be provided when
                 necessary.
               </p>
-            </div>
+            </div> */}
 
             <input
               className="w-full rounded p-3 text-black"
