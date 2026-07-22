@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function VehiclesPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="border-b border-gray-800 px-6 py-20 text-center">
+      {/* <section className="border-b border-gray-800 px-6 py-20 text-center">
         <div className="mx-auto max-w-4xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-lime-400">
             AirLink Ride Fleet
@@ -38,7 +38,7 @@ export default function VehiclesPage() {
             necessary.
           </p>
         </div>
-      </section>
+      </section> */}
 
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
