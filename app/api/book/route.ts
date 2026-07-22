@@ -101,10 +101,6 @@ export async function POST(req: Request) {
                     <td style="padding: 8px 0; color: #666;">✈️ Flight Number:</td>
                     <td style="padding: 8px 0; font-weight: bold;">${flightNumber || "Not provided"}</td>
                   </tr>
-                  // <tr>
-                  //   <td style="padding: 8px 0; color: #666;">🚘 Vehicle Type:</td>
-                  //   <td style="padding: 8px 0; font-weight: bold; color: #84cc16;">${vehicle}</td>
-                  // </tr>
                 </table>
               </div>
 
@@ -140,7 +136,7 @@ export async function POST(req: Request) {
             <p><strong>Drop-off:</strong> ${drop}</p>
             <p><strong>Date:</strong> ${formattedDate}</p>
             <p><strong>Time:</strong> ${formattedTime}</p>
-            // <p><strong>Vehicle:</strong> ${vehicle}</p>
+           
             <p><strong>Passengers:</strong> ${passengers}</p>
             <p><strong>Luggage:</strong> ${luggage}</p>
             <p><strong>Flight:</strong> ${flightNumber || "N/A"}</p>
