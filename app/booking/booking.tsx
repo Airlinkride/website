@@ -4,7 +4,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
-import { vehicles } from "@/data/vehicles";
+// import { vehicles } from "@/data/vehicles";
 
 type AddressSuggestion = {
   placeId?: string;
@@ -26,7 +26,7 @@ export default function Booking() {
     passengers: "",
     luggage: "",
     flightNumber: "",
-    vehicle: "",
+    // vehicle: "",
   });
 
   const [customTrip, setCustomTrip] = useState(false);
@@ -48,13 +48,13 @@ export default function Booking() {
     const pickup = searchParams.get("pickup");
     const drop = searchParams.get("drop");
     const custom = searchParams.get("custom");
-    const selectedVehicle = searchParams.get("vehicle");
+    // const selectedVehicle = searchParams.get("vehicle");
 
     setForm((prev) => ({
       ...prev,
       pickup: pickup || prev.pickup,
       drop: drop || prev.drop,
-      vehicle: selectedVehicle || prev.vehicle,
+      // vehicle: selectedVehicle || prev.vehicle,
     }));
 
     setCustomTrip(custom === "true");
@@ -150,10 +150,10 @@ export default function Booking() {
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!form.vehicle) {
-      toast.error("Please select a vehicle.");
-      return;
-    }
+    // if (!form.vehicle) {
+    //   toast.error("Please select a vehicle.");
+    //   return;
+    // }
 
     if (loading) return;
 
@@ -191,7 +191,7 @@ export default function Booking() {
         passengers: "",
         luggage: "",
         flightNumber: "",
-        vehicle: "",
+        // vehicle: "",
       });
 
       setCustomTrip(false);
