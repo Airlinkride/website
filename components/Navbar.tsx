@@ -11,10 +11,7 @@ export default function Navbar() {
   // Close menu when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
       }
     }
@@ -28,12 +25,10 @@ export default function Navbar() {
 
   return (
     <nav className="bg-black text-white sticky top-0 z-50 border-b border-gray-900">
-
       <div
         ref={menuRef}
         className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between"
       >
-
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3 group">
           <Image
@@ -52,32 +47,21 @@ export default function Navbar() {
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-
-          <Link
-            href="/"
-            className="hover:text-lime-400 transition"
-          >
+          <Link href="/" className="hover:text-lime-400 transition">
             Home
           </Link>
 
-          <Link
-            href="/about-us"
-            className="hover:text-lime-400 transition"
-          >
+          <Link href="/about-us" className="hover:text-lime-400 transition">
             About
           </Link>
 
-          <Link
-            href="/rates"
-            className="hover:text-lime-400 transition"
-          >
+          <Link href="/rates" className="hover:text-lime-400 transition">
             Rates
           </Link>
 
-          <Link
-            href="/contact"
-            className="hover:text-lime-400 transition"
-          >
+          <Link href="/vehicles">Vehicles</Link>
+
+          <Link href="/contact" className="hover:text-lime-400 transition">
             Contact
           </Link>
 
@@ -87,7 +71,6 @@ export default function Navbar() {
               Book Ride
             </button>
           </Link>
-
         </div>
 
         {/* MOBILE BUTTON */}
@@ -97,7 +80,6 @@ export default function Navbar() {
         >
           {menuOpen ? "✕" : "☰"}
         </button>
-
       </div>
 
       {/* MOBILE MENU */}
@@ -106,9 +88,7 @@ export default function Navbar() {
           menuOpen ? "max-h-96" : "max-h-0"
         }`}
       >
-
         <div className="flex flex-col gap-6 px-6 py-6 bg-black border-t border-gray-900 text-center">
-
           <Link href="/" onClick={() => setMenuOpen(false)}>
             Home
           </Link>
@@ -130,9 +110,7 @@ export default function Navbar() {
               Book Ride
             </button>
           </Link>
-
         </div>
-
       </div>
     </nav>
   );
