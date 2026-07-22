@@ -1,7 +1,7 @@
 export type Vehicle = {
   id: string;
   name: string;
-  category: "Sedan" | "SUV";
+  category: "Sedan" | "Luxury SUV" | "Premium SUV";
   image: string;
   passengers: string;
   luggage: string;
@@ -11,7 +11,7 @@ export const vehicles: Vehicle[] = [
   {
     id: "cadillac-escalade",
     name: "Cadillac Escalade",
-    category: "SUV",
+    category: "Luxury SUV",
     image: "/vehicles/cadillac-escalade.png",
     passengers: "Up to 6 passengers",
     luggage: "Up to 6 bags",
@@ -19,7 +19,7 @@ export const vehicles: Vehicle[] = [
   {
     id: "chevrolet-suburban",
     name: "Chevrolet Suburban",
-    category: "SUV",
+    category: "Premium SUV",
     image: "/vehicles/chevrolet-suburban.png",
     passengers: "Up to 6 passengers",
     luggage: "Up to 6 bags",
@@ -27,7 +27,7 @@ export const vehicles: Vehicle[] = [
   {
     id: "ford-expedition",
     name: "Ford Expedition",
-    category: "SUV",
+    category: "Premium SUV",
     image: "/vehicles/ford-expedition.png",
     passengers: "Up to 6 passengers",
     luggage: "Up to 6 bags",
@@ -35,7 +35,7 @@ export const vehicles: Vehicle[] = [
   {
     id: "lincoln-navigator",
     name: "Lincoln Navigator",
-    category: "SUV",
+    category: "Luxury SUV",
     image: "/vehicles/lincoln-navigator.png",
     passengers: "Up to 6 passengers",
     luggage: "Up to 6 bags",
@@ -43,7 +43,7 @@ export const vehicles: Vehicle[] = [
   {
     id: "toyota-grand-highlander",
     name: "Toyota Grand Highlander",
-    category: "SUV",
+    category: "Premium SUV",
     image: "/vehicles/toyota-grand-highlander.png",
     passengers: "Up to 6 passengers",
     luggage: "Up to 5 bags",
