@@ -4,12 +4,13 @@ import { useEffect, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
-// import { vehicles } from "@/data/vehicles";
 
 type AddressSuggestion = {
   placeId?: string;
   label: string;
 };
+
+type VehicleType = "Sedan" | "SUV" | "";
 
 export default function Booking() {
   const searchParams = useSearchParams();
@@ -26,7 +27,7 @@ export default function Booking() {
     passengers: "",
     luggage: "",
     flightNumber: "",
-    // vehicle: "",
+    vehicle: "" as VehicleType,
   });
 
   const [customTrip, setCustomTrip] = useState(false);
@@ -34,6 +35,7 @@ export default function Booking() {
   const [pickupSuggestions, setPickupSuggestions] = useState<
     AddressSuggestion[]
   >([]);
+
   const [dropSuggestions, setDropSuggestions] = useState<
     AddressSuggestion[]
   >([]);
@@ -48,13 +50,11 @@ export default function Booking() {
     const pickup = searchParams.get("pickup");
     const drop = searchParams.get("drop");
     const custom = searchParams.get("custom");
-    // const selectedVehicle = searchParams.get("vehicle");
 
     setForm((prev) => ({
       ...prev,
       pickup: pickup || prev.pickup,
       drop: drop || prev.drop,
-      // vehicle: selectedVehicle || prev.vehicle,
     }));
 
     setCustomTrip(custom === "true");
@@ -150,10 +150,10 @@ export default function Booking() {
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // if (!form.vehicle) {
-    //   toast.error("Please select a vehicle.");
-    //   return;
-    // }
+    if (!form.vehicle) {
+      toast.error("Please select Sedan or SUV.");
+      return;
+    }
 
     if (loading) return;
 
@@ -191,7 +191,7 @@ export default function Booking() {
         passengers: "",
         luggage: "",
         flightNumber: "",
-        // vehicle: "",
+        vehicle: "",
       });
 
       setCustomTrip(false);
@@ -471,64 +471,55 @@ export default function Booking() {
               />
             </div>
 
-            {/* <div>
+            <div>
               <label className="mb-3 block text-sm text-gray-300">
-                Select Vehicle
+                Select Vehicle Type
               </label>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                {vehicles.map((vehicle) => {
-                  const isSelected =
-                    form.vehicle === vehicle.name;
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  type="button"
+                  aria-pressed={form.vehicle === "Sedan"}
+                  onClick={() =>
+                    setForm((prev) => ({
+                      ...prev,
+                      vehicle: "Sedan",
+                    }))
+                  }
+                  className={`rounded border p-3 font-semibold transition ${
+                    form.vehicle === "Sedan"
+                      ? "border-lime-400 bg-lime-400 text-black"
+                      : "border-gray-700 bg-gray-800 hover:border-lime-400"
+                  }`}
+                >
+                  Sedan
+                </button>
 
-                  return (
-                    <button
-                      key={vehicle.id}
-                      type="button"
-                      aria-pressed={isSelected}
-                      onClick={() =>
-                        setForm((prev) => ({
-                          ...prev,
-                          vehicle: vehicle.name,
-                        }))
-                      }
-                      className={`rounded-xl border p-4 text-left transition ${
-                        isSelected
-                          ? "border-lime-400 bg-lime-400 text-black"
-                          : "border-gray-700 bg-gray-800 hover:border-lime-400"
-                      }`}
-                    >
-                      <span className="block font-semibold">
-                        {vehicle.name}
-                      </span>
-
-                      <span
-                        className={`mt-1 block text-sm ${
-                          isSelected
-                            ? "text-black/70"
-                            : "text-gray-400"
-                        }`}
-                      >
-                        {vehicle.category} · {vehicle.passengers}
-                      </span>
-                    </button>
-                  );
-                })}
+                <button
+                  type="button"
+                  aria-pressed={form.vehicle === "SUV"}
+                  onClick={() =>
+                    setForm((prev) => ({
+                      ...prev,
+                      vehicle: "SUV",
+                    }))
+                  }
+                  className={`rounded border p-3 font-semibold transition ${
+                    form.vehicle === "SUV"
+                      ? "border-lime-400 bg-lime-400 text-black"
+                      : "border-gray-700 bg-gray-800 hover:border-lime-400"
+                  }`}
+                >
+                  SUV
+                </button>
               </div>
 
               {!form.vehicle && (
                 <p className="mt-2 text-sm text-gray-400">
-                  Please select your preferred vehicle.
+                  Please select Sedan or SUV.
                 </p>
               )}
-
-              <p className="mt-4 text-sm leading-6 text-gray-400">
-                All listed vehicles use the applicable SUV rate.
-                Your preferred model is subject to availability,
-                and a comparable luxury SUV may be provided when
-                necessary.
-              </p>
-            </div> */}
+            </div>
 
             <input
               className="w-full rounded p-3 text-black"
