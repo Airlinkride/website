@@ -101,6 +101,10 @@ export default function Navbar() {
             Rates
           </Link>
 
+          <Link href="/vehicles" onClick={() => setMenuOpen(false)}>
+            Fleets
+          </Link>
+
           <Link href="/contact" onClick={() => setMenuOpen(false)}>
             Contact
           </Link>
