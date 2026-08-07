@@ -45,7 +45,7 @@ export const vehicles: Vehicle[] = [
     name: "Toyota Grand Highlander",
     category: "Premium SUV",
     image: "/vehicles/toyota-grand-highlander.png",
-    passengers: "Up to 6 passengers",
+    passengers: "Up to 3 passengers",
     luggage: "Up to 5 luggages",
   },
     {
@@ -53,7 +53,7 @@ export const vehicles: Vehicle[] = [
     name: "Toyota Highlander",
     category: "Premium SUV",
     image: "/vehicles/toyota-highlander.png",
-    passengers: "Up to 6 passengers",
+    passengers: "Up to 3 passengers",
     luggage: "Up to 5 luggages",
   },
 ];
