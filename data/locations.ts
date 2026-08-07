@@ -218,6 +218,105 @@ export const locations: LocationPage[] = [
     localDetails:
       "We provide airport transportation throughout Trenton, including Downtown Trenton, CFB Trenton, Carrying Place, and surrounding Quinte West communities.",
   },
+  {
+    slug: "brantford-airport-limo",
+    name: "Brantford",
+    sedan: 180,
+    suv: 190,
+    travelTime: "approximately 1 to 1.5 hours",
+    description:
+      "Professional airport limo service between Brantford and Toronto Pearson International Airport.",
+    localDetails:
+      "AirLink Ride provides airport transportation throughout Brantford, including Downtown Brantford and surrounding communities, with scheduled pickups, professional chauffeurs, and convenient door-to-door service.",
+  },
+  {
+    slug: "buffalo-airport-limo",
+    name: "Buffalo Airport",
+    sedan: 310,
+    suv: 335,
+    travelTime: "approximately 1.5 to 2.5 hours",
+    description:
+      "Private airport transportation between Toronto and Buffalo Niagara International Airport with comfortable vehicles and professional chauffeurs.",
+    localDetails:
+      "AirLink Ride provides cross-border airport transportation to and from Buffalo Niagara International Airport for business travellers, families, and leisure passengers. Travel times may vary depending on traffic and border crossing conditions.",
+  },
+  {
+    slug: "burlington-airport-limo",
+    name: "Burlington",
+    sedan: 90,
+    suv: 110,
+    travelTime: "approximately 35 to 55 minutes",
+    description:
+      "Reliable airport limo transportation between Burlington and Toronto Pearson International Airport.",
+    localDetails:
+      "AirLink Ride provides airport transportation throughout Burlington, including Downtown Burlington, Aldershot, Orchard, Millcroft, and surrounding communities.",
+  },
+  {
+    slug: "cobourg-airport-limo",
+    name: "Cobourg",
+    sedan: 220,
+    suv: 230,
+    travelTime: "approximately 1.5 hours",
+    description:
+      "Reliable airport limo transportation between Cobourg and Toronto Pearson International Airport.",
+    localDetails:
+      "We provide professional airport pickups throughout Cobourg, including the downtown area and surrounding Northumberland County communities, with convenient long-distance transportation to Pearson Airport.",
+  },
+  {
+    slug: "parry-sound-airport-limo",
+    name: "Parry Sound",
+    sedan: 399,
+    suv: 440,
+    travelTime: "approximately 2.5 to 3 hours",
+    description:
+      "Comfortable long-distance airport limo service between Parry Sound and Toronto Pearson Airport.",
+    localDetails:
+      "AirLink Ride provides scheduled airport transportation throughout Parry Sound and nearby communities, offering comfortable long-distance transfers for business and leisure travellers.",
+  },
+  {
+    slug: "bracebridge-airport-limo",
+    name: "Bracebridge",
+    sedan: 330,
+    suv: 370,
+    travelTime: "approximately 2 to 2.5 hours",
+    description:
+      "Professional airport limo service between Bracebridge and Toronto Pearson International Airport.",
+    localDetails:
+      "Our Bracebridge airport transportation service supports passengers travelling from the Muskoka region to Pearson Airport with door-to-door pickups, professional chauffeurs, and comfortable vehicles.",
+  },
+  {
+    slug: "port-hope-airport-limo",
+    name: "Port Hope",
+    sedan: 215,
+    suv: 235,
+    travelTime: "approximately 1.5 hours",
+    description:
+      "Reliable airport transportation between Port Hope and Toronto Pearson International Airport.",
+    localDetails:
+      "AirLink Ride provides airport transportation throughout Port Hope and surrounding Northumberland County communities for early-morning, daytime, and late-night Pearson Airport transfers.",
+  },
+  {
+    slug: "ajax-airport-limo",
+    name: "Ajax",
+    sedan: 100,
+    suv: 110,
+    travelTime: "approximately 45 to 70 minutes",
+    description:
+      "Flat-rate airport limo service between Ajax and Toronto Pearson International Airport.",
+    localDetails:
+      "We provide airport pickups throughout Ajax, including residential, commercial, and surrounding Durham Region areas, with convenient transportation to and from Pearson Airport.",
+  },
+  {
+    slug: "oshawa-airport-limo",
+    name: "Oshawa",
+    sedan: 120,
+    suv: 130,
+    travelTime: "approximately 50 to 80 minutes",
+    description:
+      "Professional airport limo transportation between Oshawa and Toronto Pearson International Airport.",
+    localDetails:
+      "AirLink Ride provides airport transfers throughout Oshawa and surrounding Durham Region communities with professional chauffeurs, scheduled pickups, and reliable door-to-door transportation.",
+  },
 ];
 
 export function getLocationBySlug(slug: string | undefined) {
