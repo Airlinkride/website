@@ -275,7 +275,7 @@ export default function Rates() {
         <div className="bg-black/60 p-10 rounded-lg">
           <h1 className="text-5xl font-bold mb-4">Airport Ride Rates</h1>
           <p className="text-gray-300">
-            Flat-rate airport rides across Ontario. Reliable service with professional drivers.
+            Premium airport transportation with flat rates across Ontario. Reliable service with professional drivers.
             A $17 Pearson Airport pre-arranged pickup fee applies to all arrivals
           </p>
 
