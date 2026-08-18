@@ -16,7 +16,7 @@ export default function Rates() {
         { location: "Ancaster", sedan: 123, suv: 139 },
         { location: "Angus", sedan: 175, suv: 195 },
         { location: "Ashburn", sedan: 130, suv: 145 },
-        { location: "Aurora", sedan: 100, suv: 110 },
+        { location: "Aurora", sedan: 100, suv: 120 },
       ],
     },
 
