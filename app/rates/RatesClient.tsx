@@ -166,7 +166,7 @@ export default function Rates() {
         { location: "Oakville", sedan: 70, suv: 90 },
         { location: "Orangeville", sedan: 110, suv: 130 },
         { location: "Orillia", sedan: 230, suv: 260 },
-        { location: "Orono", sedan: 183, suv: 200 },
+        { location: "Orono", sedan: 180, suv: 200 },
         { location: "Oshawa", sedan: 120, suv: 130 },
         { location: "North Oshawa", sedan: 130, suv: 140},
         { location: "Ottawa", sedan: 850, suv: 900 },
