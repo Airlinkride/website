@@ -177,7 +177,7 @@ export default function Rates() {
     {
       title: "Category P",
       rates: [
-        { location: "Parry Sound", sedan: 399, suv: 440 },
+        { location: "Parry Sound", sedan: 400, suv: 440 },
         { location: "Peterborough", sedan: 260, suv: 280 },
         { location: "Pickering", sedan: 95, suv: 100 },
         { location: "Pickering North", sedan: 115, suv: 130},
