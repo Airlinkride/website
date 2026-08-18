@@ -163,7 +163,7 @@ export default function Rates() {
     {
       title: "Category O",
       rates: [
-        { location: "Oakville", sedan: 70, suv: 80 },
+        { location: "Oakville", sedan: 70, suv: 90 },
         { location: "Orangeville", sedan: 110, suv: 130 },
         { location: "Orillia", sedan: 230, suv: 260 },
         { location: "Orono", sedan: 183, suv: 200 },
