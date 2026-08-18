@@ -46,7 +46,7 @@ export default function Rates() {
     {
       title: "Category C",
       rates: [
-        { location: "Caledon", sedan: 90, suv: 100 },
+        { location: "Caledon", sedan: 90, suv: 110 },
         { location: "Cambridge", sedan: 150, suv: 170 },
         { location: "Campbellville", sedan: 100, suv: 120 },
         { location: "Campbellford", sedan: 310, suv: 350 },
@@ -63,7 +63,7 @@ export default function Rates() {
     {
       title: "Category D",
       rates: [
-        { location: "Davisville", sedan: 60, suv: 70 },
+        { location: "Davisville", sedan: 60, suv: 80 },
         { location: "Detroit", sedan: 700, suv: 750 },
         { location: "Downtown Toronto", sedan: 70, suv: 80 },
         { location: "Dundas", sedan: 130, suv: 140 },
