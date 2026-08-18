@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { locations } from "@/data/locations";
 
 export default function Rates() {
   const rateCategories = [
@@ -353,6 +354,65 @@ export default function Rates() {
             </div>
           </div>
         ))}
+      </section>
+      {/* AIRPORT LIMO SERVICE AREAS */}
+      <section className="border-t border-gray-800 bg-[#090909] px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-lime-400">
+              Explore Our Routes
+            </p>
+
+            <h2 className="text-3xl font-bold text-white md:text-4xl">
+              Airport Limo Service Areas
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-3xl leading-relaxed text-gray-400">
+              Need airport transportation from another Ontario city? Select a
+              service area below to view flat-rate sedan and SUV pricing,
+              estimated travel time, and booking information.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {locations.map((location) => (
+              <Link
+                key={location.slug}
+                href={`/${location.slug}`}
+                className="group rounded-xl border border-gray-800 bg-black p-5 transition-all duration-300 hover:-translate-y-1 hover:border-lime-400 hover:bg-gray-950"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="font-semibold text-white transition group-hover:text-lime-400">
+                      {location.name}
+                    </h3>
+
+                    <p className="mt-2 text-sm text-gray-400">
+                      Pearson Airport Limo
+                    </p>
+                  </div>
+
+                  <span
+                    className="text-lime-400"
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-gray-800 pt-4">
+                  <span className="font-semibold text-lime-400">
+                    From ${location.sedan}
+                  </span>
+
+                  <span className="text-sm text-gray-500 transition group-hover:text-white">
+                    View route →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
   );

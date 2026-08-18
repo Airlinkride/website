@@ -1,10 +1,18 @@
+import type { Metadata } from "next";
+import Hero from "@/components/Hero";
+import ServiceAreas from "@/components/ServiceAreas";
 
-import Hero from "../components/Hero"
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.airlinkride.com",
+  },
+};
 
-export default function Home(){
+export default function Home() {
   return (
-    <main>
-      <Hero/>
-    </main>
-  )
+    <>
+      <Hero />
+      <ServiceAreas />
+    </>
+  );
 }

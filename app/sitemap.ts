@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { locations } from "../data/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.airlinkride.com";
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -34,11 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/mississauga-airport-limo`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
   ];
+
+  const locationPages: MetadataRoute.Sitemap = locations.map((location) => ({
+    url: `${baseUrl}/${location.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...locationPages];
 }
