@@ -86,7 +86,7 @@ export default function Rates() {
       rates: [
         { location: "Georgetown", sedan: 80, suv: 90 },
         { location: "Georgina", sedan: 200, suv: 220 },
-        { location: "Goodwood", sedan: 120, suv: 135 },
+        { location: "Goodwood", sedan: 140, suv: 160 },
         { location: "Gravenhurst", sedan: 300, suv: 330 },
         { location: "Grimsby", sedan: 140, suv: 160 },
         { location: "Guelph", sedan: 135, suv: 150 },
@@ -201,7 +201,7 @@ export default function Rates() {
     {
       title: "Category R",
       rates: [
-        { location: "Richmond Hill", sedan: 80, suv: 85 },
+        { location: "Richmond Hill", sedan: 80, suv: 100 },
         { location: "Rockport", sedan: 545, suv: 585 },
         { location: "Rosedale", sedan: 70, suv: 90 },
       ],
