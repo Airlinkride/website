@@ -144,8 +144,8 @@ export const locations: LocationPage[] = [
   {
     slug: "kingston-airport-limo",
     name: "Kingston",
-    sedan: 520,
-    suv: 570,
+    sedan: 450,
+    suv: 475,
     travelTime: "approximately 3 hours",
     description:
       "Reliable airport limo service between Kingston and Toronto Pearson International Airport.",
