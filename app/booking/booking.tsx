@@ -3,7 +3,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type AddressSuggestion = {
   placeId?: string;
@@ -14,6 +14,7 @@ type VehicleType = "Sedan" | "SUV" | "";
 
 export default function Booking() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
@@ -176,31 +177,18 @@ export default function Booking() {
         );
       }
 
-      toast.success(
-        "Booking received! A confirmation email will arrive shortly.",
-      );
-
-      setForm({
-        name: "",
-        phone: "",
-        email: "",
-        pickup: "",
-        drop: "",
-        date: "",
-        time: "",
-        passengers: "",
-        luggage: "",
-        flightNumber: "",
-        vehicle: "",
-      });
-
-      setCustomTrip(false);
-      setSelectedPickup(false);
-      setSelectedDrop(false);
-      setPickupSuggestions([]);
-      setDropSuggestions([]);
-      setShowPickupSuggestions(false);
-      setShowDropSuggestions(false);
+      // Only navigate after the booking API has confirmed success.
+      // Session storage keeps customer details out of the public URL.
+      sessionStorage.setItem("airlinkride-last-booking", JSON.stringify({
+        name: form.name,
+        pickup: form.pickup,
+        drop: form.drop,
+        date: form.date,
+        time: form.time,
+        vehicle: form.vehicle,
+        customTrip,
+      }));
+      router.push("/thank-you");
     } catch (error) {
       console.error("Booking submission error:", error);
 
