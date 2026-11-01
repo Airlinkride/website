@@ -1,9 +1,10 @@
+
 import "../styles/globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ReactNode } from "react";
 import { Toaster } from "react-hot-toast";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { locations } from "@/data/locations";
 
@@ -62,8 +63,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-TRK7GNQ8" />
-
       <body className="flex min-h-screen flex-col bg-black text-white">
         <script
           type="application/ld+json"
@@ -80,6 +79,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
         <Footer />
       </body>
+
+      {/* New Google Ads Tag - Client Owned */}
+      <GoogleAnalytics gaId="AW-17744332229" />
+
+      {/* Old GTM container - disabled */}
+      {/* <GoogleTagManager gtmId="GTM-TRK7GNQ8" /> */}
     </html>
   );
 }
