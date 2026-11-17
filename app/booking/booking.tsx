@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -16,6 +16,8 @@ export default function Booking() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const submittingRef = useRef(false);
+  const completedRef = useRef(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -156,49 +158,97 @@ export default function Booking() {
       return;
     }
 
-    if (loading) return;
-
+    // A ref guards against rapid clicks before React updates loading state.
+    if (submittingRef.current || completedRef.current) return;
+    submittingRef.current = true;
     setLoading(true);
+
+    let accepted = false;
+    let bookingId: string | undefined;
 
     try {
       const response = await fetch("/api/book", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          result?.error || "Unable to submit your booking.",
-        );
+      if (!response.ok || result?.success !== true) {
+        throw new Error(result?.error || "Unable to submit your booking.");
       }
 
-      // Only navigate after the booking API has confirmed success.
-      // Session storage keeps customer details out of the public URL.
-      sessionStorage.setItem("airlinkride-last-booking", JSON.stringify({
-        name: form.name,
-        pickup: form.pickup,
-        drop: form.drop,
-        date: form.date,
-        time: form.time,
-        vehicle: form.vehicle,
-        customTrip,
-      }));
-      router.push("/thank-you");
+      accepted = true;
+      completedRef.current = true;
+      // Only use a server-issued stable, non-personal booking ID.
+      if (typeof result.bookingId === "string" && result.bookingId.trim()) {
+        bookingId = result.bookingId;
+      }
     } catch (error) {
       console.error("Booking submission error:", error);
-
       toast.error(
         error instanceof Error
           ? error.message
           : "Unable to submit your booking. Please try again.",
       );
-    } finally {
+    }
+
+    if (!accepted) {
+      submittingRef.current = false;
       setLoading(false);
+      return;
+    }
+
+    // Storage is best effort; it must not turn an accepted booking into an error.
+    try {
+      sessionStorage.setItem(
+        "airlinkride-last-booking",
+        JSON.stringify({
+          name: form.name,
+          pickup: form.pickup,
+          drop: form.drop,
+          date: form.date,
+          time: form.time,
+          vehicle: form.vehicle,
+          customTrip,
+        }),
+      );
+    } catch (error) {
+      console.warn("Could not save booking summary:", error);
+    }
+
+    // Never let an unavailable or slow Google tag block confirmation.
+    let navigated = false;
+    let fallbackTimer: ReturnType<typeof setTimeout> | undefined;
+    const navigateOnce = () => {
+      if (navigated) return;
+      navigated = true;
+      if (fallbackTimer) clearTimeout(fallbackTimer);
+      router.push("/thank-you");
+    };
+
+    fallbackTimer = setTimeout(navigateOnce, 700);
+
+    try {
+      const gtag = (window as Window & {
+        gtag?: (...args: unknown[]) => void;
+      }).gtag;
+
+      if (typeof gtag !== "function") {
+        navigateOnce();
+        return;
+      }
+
+      const eventData: Record<string, unknown> = {
+        send_to: "AW-17744332229/FcR5CN75ie0cEMWLlI1C",
+        event_callback: navigateOnce,
+        event_timeout: 600,
+      };
+      if (bookingId) eventData.transaction_id = bookingId;
+      gtag("event", "conversion", eventData);
+    } catch (error) {
+      console.warn("Google Ads conversion tracking unavailable:", error);
+      navigateOnce();
     }
   }
 
